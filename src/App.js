@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import SipCalculator from './page/SipCalculator';
+import SipCalculator from './page/Calculators/Pages/SipCalculator';
+import Calculators from './page/Calculators/Calculators';
+import Navbar from './page/Components/Navbar';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -9,6 +11,22 @@ function App() {
     switch (currentPage) {
       case 'sip-calculator':
         return <SipCalculator />;
+      case 'calculators':
+        return <Calculators />;
+      case 'learn':
+        return (
+          <div className="page-container">
+            <h1>Learn</h1>
+            <p>Educational content and financial literacy resources coming soon.</p>
+          </div>
+        );
+      case 'tools':
+        return (
+          <div className="page-container">
+            <h1>Tools</h1>
+            <p>Additional financial tools and utilities coming soon.</p>
+          </div>
+        );
       default:
         return (
           <>
@@ -19,7 +37,7 @@ function App() {
                   <h1>Take Control of Your Financial Future</h1>
                   <p>Track expenses, set budgets, and achieve your financial goals with our intuitive finance management platform.</p>
                   <div className="hero-buttons">
-                    <button className="btn-primary btn-large">Start Free Trial</button>
+                    <button className="btn-primary btn-large" onClick={() => setCurrentPage('calculators')}>Try Calculators</button>
                     <button className="btn-outline btn-large">Watch Demo</button>
                   </div>
                 </div>
@@ -124,27 +142,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-            <h2 onClick={() => setCurrentPage('home')} style={{ cursor: 'pointer' }}>FinanceFlow</h2>
-          </div>
-          <nav className="nav">
-            <ul>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('home'); }}>Home</a></li>
-              <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('sip-calculator'); }}>SIP Calculator</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-          <div className="header-buttons">
-            <button className="btn-secondary">Login</button>
-            <button className="btn-primary">Get Started</button>
-          </div>
-        </div>
-      </header>
+      {/* Navbar */}
+      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
       {/* Main Content */}
       {renderPage()}
@@ -161,7 +160,18 @@ function App() {
               <h4>Product</h4>
               <ul>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('sip-calculator'); }}>SIP Calculator</a></li>
+                <li><button 
+                  className="footer-link" 
+                  onClick={() => setCurrentPage('calculators')}
+                >
+                  Calculators
+                </button></li>
+                <li><button 
+                  className="footer-link" 
+                  onClick={() => setCurrentPage('sip-calculator')}
+                >
+                  SIP Calculator
+                </button></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#security">Security</a></li>
                 <li><a href="#api">API</a></li>

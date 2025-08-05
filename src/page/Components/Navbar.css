@@ -1,0 +1,285 @@
+/* Navbar Block */
+.Navbar {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.Navbar__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Logo Block */
+.Navbar__Logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.Navbar__Logo:hover {
+  opacity: 0.8;
+}
+
+.Navbar__LogoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.Navbar__LogoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Navigation Block */
+.Navbar__Nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.Navbar__NavLink {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: all 0.2s ease;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Navbar__NavLink:hover {
+  color: #007bff;
+}
+
+.Navbar__NavLink--active {
+  color: #007bff;
+}
+
+.Navbar__NavLink--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #007bff;
+  border-radius: 1px;
+}
+
+/* Actions Block */
+.Navbar__Actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Notification Button */
+.Navbar__NotificationBtn {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.Navbar__NotificationBtn:hover {
+  background: #e9ecef;
+  border-color: #ced4da;
+  color: #333;
+}
+
+/* User Profile Block */
+.Navbar__UserProfile {
+  display: flex;
+  align-items: center;
+}
+
+.Navbar__ProfileAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFB6C1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.Navbar__ProfileAvatar:hover {
+  border-color: #e0e0e0;
+  transform: scale(1.05);
+}
+
+/* Mobile Menu Button */
+.Navbar__MobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.Navbar__MobileMenuBtn:hover {
+  background: #f8f9fa;
+}
+
+/* Mobile Menu Block */
+.Navbar__MobileMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.Navbar__MobileNavLink {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Navbar__MobileNavLink:hover {
+  background: #f8f9fa;
+  color: #007bff;
+}
+
+.Navbar__MobileNavLink--active {
+  background: #e3f2fd;
+  color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Navbar__Nav {
+    display: none;
+  }
+  
+  .Navbar__MobileMenuBtn {
+    display: flex;
+  }
+  
+  .Navbar__MobileMenu {
+    display: flex;
+  }
+  
+  .Navbar__Container {
+    padding: 0 0.75rem;
+  }
+  
+  .Navbar__LogoText {
+    font-size: 1.3rem;
+  }
+  
+  .Navbar__Actions {
+    gap: 0.5rem;
+  }
+  
+  .Navbar__NotificationBtn {
+    padding: 0.4rem;
+  }
+  
+  .Navbar__ProfileAvatar {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Navbar__Container {
+    padding: 0 0.5rem;
+  }
+  
+  .Navbar__LogoText {
+    font-size: 1.2rem;
+  }
+  
+  .Navbar__Actions {
+    gap: 0.25rem;
+  }
+  
+  .Navbar__NotificationBtn {
+    padding: 0.3rem;
+  }
+  
+  .Navbar__ProfileAvatar {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Animation for mobile menu */
+.Navbar__MobileMenu {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for accessibility */
+.Navbar__NavLink:focus,
+.Navbar__NotificationBtn:focus,
+.Navbar__ProfileAvatar:focus,
+.Navbar__MobileMenuBtn:focus,
+.Navbar__MobileNavLink:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Hover effects */
+.Navbar__Logo:hover .Navbar__LogoIcon {
+  transform: scale(1.05);
+}
+
+.Navbar__NotificationBtn:hover svg {
+  transform: scale(1.1);
+}

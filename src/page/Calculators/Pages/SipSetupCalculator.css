@@ -1,0 +1,427 @@
+/* SIP Setup Calculator Block */
+.SipSetupCalculator {
+  min-height: 100vh;
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.SipSetupCalculator__Container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.SipSetupCalculator__Header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.SipSetupCalculator__BackButton {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.SipSetupCalculator__BackButton:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.SipSetupCalculator__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.SipSetupCalculator__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.SipSetupCalculator__Content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.SipSetupCalculator__Form {
+  padding: 2rem;
+}
+
+/* Section Block */
+.SipSetupCalculator__Section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.SipSetupCalculator__Section:last-of-type {
+  border-bottom: none;
+}
+
+.SipSetupCalculator__SectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+}
+
+.SipSetupCalculator__InputGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.SipSetupCalculator__InputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.SipSetupCalculator__Label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.SipSetupCalculator__Input,
+.SipSetupCalculator__Select {
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  background: white;
+  color: #333;
+}
+
+.SipSetupCalculator__Input:focus,
+.SipSetupCalculator__Select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.SipSetupCalculator__Input::placeholder {
+  color: #999;
+}
+
+.SipSetupCalculator__AmountPreview {
+  font-size: 0.8rem;
+  color: #007bff;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* Checkbox Block */
+.SipSetupCalculator__CheckboxGroup {
+  margin-top: 1rem;
+}
+
+.SipSetupCalculator__CheckboxLabel {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.2s ease;
+}
+
+.SipSetupCalculator__CheckboxLabel:hover {
+  background: #e9ecef;
+}
+
+.SipSetupCalculator__Checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.125rem;
+  transform: scale(1.1);
+  accent-color: #007bff;
+}
+
+.SipSetupCalculator__CheckboxText {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Summary Section Block */
+.SipSetupCalculator__SummarySection {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e9ecef;
+}
+
+.SipSetupCalculator__SummaryTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.SipSetupCalculator__SummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.SipSetupCalculator__SummaryCard {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.SipSetupCalculator__SummaryLabel {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.SipSetupCalculator__SummaryValue {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Submit Section Block */
+.SipSetupCalculator__SubmitSection {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.SipSetupCalculator__SubmitButton {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.SipSetupCalculator__SubmitButton:hover:not(:disabled) {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.SipSetupCalculator__SubmitButton:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.SipSetupCalculator__SubmitButton--loading {
+  position: relative;
+  color: transparent;
+}
+
+.SipSetupCalculator__SubmitButton--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Success Message Block */
+.SipSetupCalculator__SuccessMessage {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  animation: fadeInUp 0.5s ease;
+}
+
+.SipSetupCalculator__SuccessIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.SipSetupCalculator__SuccessTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #155724;
+  margin-bottom: 1rem;
+}
+
+.SipSetupCalculator__SuccessText {
+  font-size: 1rem;
+  color: #155724;
+  line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .SipSetupCalculator__Container {
+    padding: 1rem;
+  }
+  
+  .SipSetupCalculator__Title {
+    font-size: 2rem;
+  }
+  
+  .SipSetupCalculator__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .SipSetupCalculator__Form {
+    padding: 1.5rem;
+  }
+  
+  .SipSetupCalculator__InputGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .SipSetupCalculator__SummaryGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .SipSetupCalculator__BackButton {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  
+  .SipSetupCalculator__SubmitButton {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .SipSetupCalculator__Container {
+    padding: 0.5rem;
+  }
+  
+  .SipSetupCalculator__Title {
+    font-size: 1.8rem;
+  }
+  
+  .SipSetupCalculator__Form {
+    padding: 1rem;
+  }
+  
+  .SipSetupCalculator__Section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .SipSetupCalculator__SectionTitle {
+    font-size: 1.3rem;
+  }
+  
+  .SipSetupCalculator__SummaryCard {
+    padding: 0.75rem;
+  }
+  
+  .SipSetupCalculator__SuccessMessage {
+    padding: 1.5rem;
+  }
+  
+  .SipSetupCalculator__SuccessIcon {
+    font-size: 2.5rem;
+  }
+  
+  .SipSetupCalculator__SuccessTitle {
+    font-size: 1.3rem;
+  }
+}
+
+/* Focus states for accessibility */
+.SipSetupCalculator__Input:focus,
+.SipSetupCalculator__Select:focus,
+.SipSetupCalculator__SubmitButton:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Loading state animations */
+.SipSetupCalculator__SubmitButton--loading {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Form validation styles */
+.SipSetupCalculator__Input:invalid {
+  border-color: #dc3545;
+}
+
+.SipSetupCalculator__Input:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Hover effects */
+.SipSetupCalculator__SummaryCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.SipSetupCalculator__CheckboxLabel:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

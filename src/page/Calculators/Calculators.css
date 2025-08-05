@@ -1,0 +1,366 @@
+/* Calculator Dashboard Block */
+.CalculatorsDashboard {
+  min-height: 100vh;
+  background: white;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.CalculatorsDashboard__Header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.CalculatorsDashboard__Title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.CalculatorsDashboard__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.CalculatorsDashboard__Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Calculator Card Block */
+.CalculatorCard {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.CalculatorCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--card-color);
+}
+
+.CalculatorCard__Icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  background: var(--card-color);
+  color: white;
+}
+
+.CalculatorCard__Title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.CalculatorCard__Description {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.CalculatorCard__Arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.2rem;
+  color: #999;
+  transition: all 0.2s ease;
+}
+
+.CalculatorCard:hover .CalculatorCard__Arrow {
+  color: var(--card-color);
+  transform: translateX(3px);
+}
+
+/* Calculator Container Block */
+.CalculatorContainer {
+  min-height: 100vh;
+  background: white;
+  padding: 2rem 1rem;
+}
+
+.CalculatorContent {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.CalculatorContent__Header {
+  background: white;
+  color: #333;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.CalculatorContent__BackButton {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.CalculatorContent__BackButton:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.CalculatorContent__Title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.CalculatorContent__Body {
+  padding: 2rem;
+}
+
+.CalculatorContent__InputSection {
+  margin-bottom: 2rem;
+}
+
+.CalculatorContent__InputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.CalculatorContent__Label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.CalculatorContent__Input,
+.CalculatorContent__Select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  background: white;
+  color: #333;
+}
+
+.CalculatorContent__Input:focus,
+.CalculatorContent__Select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.CalculatorContent__Input::placeholder {
+  color: #999;
+}
+
+.CalculatorContent__CheckboxGroup {
+  margin-bottom: 1.5rem;
+}
+
+.CalculatorContent__CheckboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.CalculatorContent__Checkbox {
+  width: auto;
+  margin-right: 0.5rem;
+  transform: scale(1.1);
+}
+
+.CalculatorContent__CalculateButton {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.CalculatorContent__CalculateButton:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Result Section Block */
+.ResultSection {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 1px solid #e9ecef;
+}
+
+.ResultSection__Title {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.ResultSection__Cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.ResultSection__Card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.ResultSection__CardTitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.ResultSection__CardValue {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.CalculatorContent__SetupForm {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .CalculatorsDashboard__Title {
+    font-size: 2rem;
+  }
+  
+  .CalculatorsDashboard__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .CalculatorsDashboard__Grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .CalculatorCard {
+    padding: 1rem;
+  }
+  
+  .CalculatorContent__Header {
+    padding: 1rem;
+  }
+  
+  .CalculatorContent__BackButton {
+    position: static;
+    transform: none;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+  
+  .CalculatorContent__Title {
+    font-size: 1.5rem;
+  }
+  
+  .CalculatorContent__Body {
+    padding: 1rem;
+  }
+  
+  .ResultSection__Cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .ResultSection__CardValue {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .CalculatorsDashboard,
+  .CalculatorContainer {
+    padding: 1rem 0.5rem;
+  }
+  
+  .CalculatorCard {
+    padding: 0.75rem;
+  }
+  
+  .CalculatorCard__Icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .CalculatorCard__Title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Simple hover effects */
+.CalculatorCard:hover {
+  transform: translateY(-2px);
+}
+
+.CalculatorContent__CalculateButton:hover {
+  transform: translateY(-1px);
+}
+
+/* Error States */
+.CalculatorContent__InputGroup--error .CalculatorContent__Input {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
+}
+
+.CalculatorContent__ErrorMessage {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+} 

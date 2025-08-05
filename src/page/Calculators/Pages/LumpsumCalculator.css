@@ -1,0 +1,537 @@
+/* Lump Sum Calculator Block */
+.LumpsumCalculator {
+  min-height: 100vh;
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.LumpsumCalculator__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.LumpsumCalculator__Header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.LumpsumCalculator__BackButton {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.LumpsumCalculator__BackButton:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.LumpsumCalculator__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.LumpsumCalculator__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.LumpsumCalculator__Content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Input Section Block */
+.LumpsumCalculator__InputSection {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid #e9ecef;
+}
+
+.LumpsumCalculator__SectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.LumpsumCalculator__InputGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.LumpsumCalculator__InputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.LumpsumCalculator__Label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.LumpsumCalculator__Input,
+.LumpsumCalculator__Select {
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+  color: #333;
+}
+
+.LumpsumCalculator__Input:focus,
+.LumpsumCalculator__Select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.LumpsumCalculator__Input::placeholder {
+  color: #999;
+}
+
+/* Slider Block */
+.LumpsumCalculator__Slider {
+  margin-top: 0.5rem;
+}
+
+.LumpsumCalculator__RangeInput {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #e0e0e0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.LumpsumCalculator__RangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.LumpsumCalculator__RangeInput::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.LumpsumCalculator__SliderLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Results Section Block */
+.LumpsumCalculator__ResultsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.LumpsumCalculator__ResultsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.LumpsumCalculator__ResultCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease;
+}
+
+.LumpsumCalculator__ResultCard:hover {
+  transform: translateY(-2px);
+}
+
+.LumpsumCalculator__ResultCard--highlight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+.LumpsumCalculator__ResultIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.LumpsumCalculator__ResultTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.LumpsumCalculator__ResultAmount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.LumpsumCalculator__ResultAmount--returns {
+  color: #28a745;
+}
+
+.LumpsumCalculator__ResultCard--highlight .LumpsumCalculator__ResultAmount--returns {
+  color: #90EE90;
+}
+
+.LumpsumCalculator__ResultDescription {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.LumpsumCalculator__ResultCard--highlight .LumpsumCalculator__ResultDescription {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Risk Section Block */
+.LumpsumCalculator__RiskSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.LumpsumCalculator__RiskTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.LumpsumCalculator__RiskIndicator {
+  text-align: center;
+}
+
+.LumpsumCalculator__RiskBar {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.LumpsumCalculator__RiskLabel {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.LumpsumCalculator__RiskDescription {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Breakdown Section Block */
+.LumpsumCalculator__BreakdownSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.LumpsumCalculator__BreakdownTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.LumpsumCalculator__BreakdownTable {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+}
+
+.LumpsumCalculator__TableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background: #f8f9fa;
+  padding: 1rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.LumpsumCalculator__TableBody {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.LumpsumCalculator__TableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.LumpsumCalculator__TableRow:hover {
+  background: #f8f9fa;
+}
+
+.LumpsumCalculator__TableRow:last-child {
+  border-bottom: none;
+}
+
+.LumpsumCalculator__TableReturns {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.LumpsumCalculator__TableTotal {
+  color: #007bff;
+  font-weight: 600;
+}
+
+/* Tips Section Block */
+.LumpsumCalculator__TipsSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.LumpsumCalculator__TipsTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.LumpsumCalculator__TipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.LumpsumCalculator__TipCard {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid #007bff;
+  transition: transform 0.2s ease;
+}
+
+.LumpsumCalculator__TipCard:hover {
+  transform: translateY(-2px);
+}
+
+.LumpsumCalculator__TipTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.LumpsumCalculator__TipText {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .LumpsumCalculator__Content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .LumpsumCalculator__ResultsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .LumpsumCalculator__Container {
+    padding: 1rem;
+  }
+  
+  .LumpsumCalculator__Title {
+    font-size: 2rem;
+  }
+  
+  .LumpsumCalculator__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .LumpsumCalculator__InputSection {
+    padding: 1.5rem;
+  }
+  
+  .LumpsumCalculator__ResultsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .LumpsumCalculator__TipsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .LumpsumCalculator__TableHeader,
+  .LumpsumCalculator__TableRow {
+    grid-template-columns: 1fr 1fr;
+    font-size: 0.8rem;
+  }
+  
+  .LumpsumCalculator__TableHeader span:nth-child(3),
+  .LumpsumCalculator__TableHeader span:nth-child(4),
+  .LumpsumCalculator__TableRow span:nth-child(3),
+  .LumpsumCalculator__TableRow span:nth-child(4) {
+    display: none;
+  }
+  
+  .LumpsumCalculator__BackButton {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .LumpsumCalculator__Container {
+    padding: 0.5rem;
+  }
+  
+  .LumpsumCalculator__Title {
+    font-size: 1.8rem;
+  }
+  
+  .LumpsumCalculator__InputSection {
+    padding: 1rem;
+  }
+  
+  .LumpsumCalculator__ResultCard {
+    padding: 1rem;
+  }
+  
+  .LumpsumCalculator__ResultAmount {
+    font-size: 1.5rem;
+  }
+  
+  .LumpsumCalculator__TipCard {
+    padding: 1rem;
+  }
+  
+  .LumpsumCalculator__RiskBar {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Animation Classes */
+.LumpsumCalculator__ResultCard {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.LumpsumCalculator__ResultCard:nth-child(1) { animation-delay: 0.1s; }
+.LumpsumCalculator__ResultCard:nth-child(2) { animation-delay: 0.2s; }
+.LumpsumCalculator__ResultCard:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for accessibility */
+.LumpsumCalculator__Input:focus,
+.LumpsumCalculator__Select:focus,
+.LumpsumCalculator__RangeInput:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for table */
+.LumpsumCalculator__TableBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.LumpsumCalculator__TableBody::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.LumpsumCalculator__TableBody::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.LumpsumCalculator__TableBody::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Risk level specific styles */
+.LumpsumCalculator__RiskBar[style*="28a745"] {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+}
+
+.LumpsumCalculator__RiskBar[style*="ffc107"] {
+  background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%) !important;
+}
+
+.LumpsumCalculator__RiskBar[style*="dc3545"] {
+  background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%) !important;
+}

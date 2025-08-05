@@ -1,0 +1,583 @@
+/* EMI Calculator Block */
+.EmiCalculator {
+  min-height: 100vh;
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.EmiCalculator__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.EmiCalculator__Header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.EmiCalculator__BackButton {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.EmiCalculator__BackButton:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.EmiCalculator__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.EmiCalculator__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.EmiCalculator__Content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Input Section Block */
+.EmiCalculator__InputSection {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid #e9ecef;
+}
+
+.EmiCalculator__SectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.EmiCalculator__InputGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.EmiCalculator__InputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.EmiCalculator__Label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.EmiCalculator__Input,
+.EmiCalculator__Select {
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+  color: #333;
+}
+
+.EmiCalculator__Input:focus,
+.EmiCalculator__Select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.EmiCalculator__Input::placeholder {
+  color: #999;
+}
+
+/* Loan Type Indicator */
+.EmiCalculator__LoanTypeIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.EmiCalculator__LoanTypeIcon {
+  font-size: 1.2rem;
+}
+
+.EmiCalculator__LoanTypeName {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Slider Block */
+.EmiCalculator__Slider {
+  margin-top: 0.5rem;
+}
+
+.EmiCalculator__RangeInput {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #e0e0e0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.EmiCalculator__RangeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.EmiCalculator__RangeInput::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.EmiCalculator__SliderLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Results Section Block */
+.EmiCalculator__ResultsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.EmiCalculator__ResultsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.EmiCalculator__ResultCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease;
+}
+
+.EmiCalculator__ResultCard:hover {
+  transform: translateY(-2px);
+}
+
+.EmiCalculator__ResultCard--highlight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+.EmiCalculator__ResultIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.EmiCalculator__ResultTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.EmiCalculator__ResultAmount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+.EmiCalculator__ResultAmount--interest {
+  color: #dc3545;
+}
+
+.EmiCalculator__ResultCard--highlight .EmiCalculator__ResultAmount--interest {
+  color: #ffcccb;
+}
+
+.EmiCalculator__ResultDescription {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.EmiCalculator__ResultCard--highlight .EmiCalculator__ResultDescription {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Summary Section Block */
+.EmiCalculator__SummarySection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.EmiCalculator__SummaryTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.EmiCalculator__SummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.EmiCalculator__SummaryCard {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.EmiCalculator__SummaryLabel {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.EmiCalculator__SummaryValue {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Breakdown Section Block */
+.EmiCalculator__BreakdownSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.EmiCalculator__BreakdownTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.EmiCalculator__BreakdownTable {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+}
+
+.EmiCalculator__TableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background: #f8f9fa;
+  padding: 1rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.EmiCalculator__TableBody {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.EmiCalculator__TableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.EmiCalculator__TableRow:hover {
+  background: #f8f9fa;
+}
+
+.EmiCalculator__TableRow:last-child {
+  border-bottom: none;
+}
+
+.EmiCalculator__TableInterest {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.EmiCalculator__TableBalance {
+  color: #007bff;
+  font-weight: 600;
+}
+
+/* Tips Section Block */
+.EmiCalculator__TipsSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.EmiCalculator__TipsTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.EmiCalculator__TipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.EmiCalculator__TipCard {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid #007bff;
+  transition: transform 0.2s ease;
+}
+
+.EmiCalculator__TipCard:hover {
+  transform: translateY(-2px);
+}
+
+.EmiCalculator__TipTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.EmiCalculator__TipText {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .EmiCalculator__Content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .EmiCalculator__ResultsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .EmiCalculator__Container {
+    padding: 1rem;
+  }
+  
+  .EmiCalculator__Title {
+    font-size: 2rem;
+  }
+  
+  .EmiCalculator__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .EmiCalculator__InputSection {
+    padding: 1.5rem;
+  }
+  
+  .EmiCalculator__ResultsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .EmiCalculator__TipsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .EmiCalculator__TableHeader,
+  .EmiCalculator__TableRow {
+    grid-template-columns: 1fr 1fr;
+    font-size: 0.8rem;
+  }
+  
+  .EmiCalculator__TableHeader span:nth-child(3),
+  .EmiCalculator__TableHeader span:nth-child(4),
+  .EmiCalculator__TableHeader span:nth-child(5),
+  .EmiCalculator__TableRow span:nth-child(3),
+  .EmiCalculator__TableRow span:nth-child(4),
+  .EmiCalculator__TableRow span:nth-child(5) {
+    display: none;
+  }
+  
+  .EmiCalculator__BackButton {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .EmiCalculator__Container {
+    padding: 0.5rem;
+  }
+  
+  .EmiCalculator__Title {
+    font-size: 1.8rem;
+  }
+  
+  .EmiCalculator__InputSection {
+    padding: 1rem;
+  }
+  
+  .EmiCalculator__ResultCard {
+    padding: 1rem;
+  }
+  
+  .EmiCalculator__ResultAmount {
+    font-size: 1.5rem;
+  }
+  
+  .EmiCalculator__TipCard {
+    padding: 1rem;
+  }
+  
+  .EmiCalculator__SummaryCard {
+    padding: 0.75rem;
+  }
+}
+
+/* Animation Classes */
+.EmiCalculator__ResultCard {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.EmiCalculator__ResultCard:nth-child(1) { animation-delay: 0.1s; }
+.EmiCalculator__ResultCard:nth-child(2) { animation-delay: 0.2s; }
+.EmiCalculator__ResultCard:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for accessibility */
+.EmiCalculator__Input:focus,
+.EmiCalculator__Select:focus,
+.EmiCalculator__RangeInput:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar for table */
+.EmiCalculator__TableBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.EmiCalculator__TableBody::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.EmiCalculator__TableBody::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.EmiCalculator__TableBody::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Loan type specific styles */
+.EmiCalculator__LoanTypeIndicator {
+  transition: all 0.2s ease;
+}
+
+.EmiCalculator__LoanTypeIndicator:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Interest rate warning styles */
+.EmiCalculator__ResultAmount--interest {
+  position: relative;
+}
+
+.EmiCalculator__ResultAmount--interest::after {
+  content: '⚠️';
+  position: absolute;
+  top: -5px;
+  right: -15px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Processing fee highlight */
+.EmiCalculator__Input[name="processingFee"]:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.1);
+}
+
+.EmiCalculator__Input[name="processingFee"]:not(:placeholder-shown) {
+  border-color: #ffc107;
+  background-color: #fffbf0;
+}
