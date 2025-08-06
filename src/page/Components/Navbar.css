@@ -75,11 +75,11 @@
 }
 
 .Navbar__NavLink:hover {
-  color: #007bff;
+  color: #00b4d8;
 }
 
 .Navbar__NavLink--active {
-  color: #007bff;
+  color: #00b4d8;
 }
 
 .Navbar__NavLink--active::after {
@@ -89,7 +89,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: #007bff;
+  background: #00b4d8;
   border-radius: 1px;
 }
 
@@ -130,7 +130,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #FFB6C1;
+  background: #00b4d8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,12 +191,12 @@
 
 .Navbar__MobileNavLink:hover {
   background: #f8f9fa;
-  color: #007bff;
+  color: #00b4d8;
 }
 
 .Navbar__MobileNavLink--active {
   background: #e3f2fd;
-  color: #007bff;
+  color: #00b4d8;
 }
 
 /* Responsive Design */
@@ -280,7 +280,7 @@
 .Navbar__ProfileAvatar:focus,
 .Navbar__MobileMenuBtn:focus,
 .Navbar__MobileNavLink:focus {
-  outline: 2px solid #007bff;
+  outline: 2px solid #00b4d8;
   outline-offset: 2px;
 }
 

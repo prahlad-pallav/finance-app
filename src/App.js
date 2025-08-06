@@ -4,6 +4,7 @@ import SipCalculator from './page/Calculators/Pages/SipCalculator';
 import Calculators from './page/Calculators/Calculators';
 import Navbar from './page/Components/Navbar';
 import Currency from './page/Currency/Currency';
+import Cryptocurrency from './page/Cryptocurrency/Cryptocurrency';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -16,6 +17,8 @@ function App() {
         return <Calculators />;
       case 'currency':
         return <Currency onBack={() => setCurrentPage('home')} />;
+      case 'cryptocurrency':
+        return <Cryptocurrency />;
       case 'learn':
         return (
           <div className="page-container">

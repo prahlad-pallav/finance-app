@@ -1,0 +1,662 @@
+/* CryptoDetails Component Styles */
+.CryptoDetails {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  color: #333333;
+}
+
+.CryptoDetails__Container {
+  width: 100%;
+}
+
+/* Header Styles */
+.CryptoDetails__Header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.CryptoDetails__BackBtn {
+  background: linear-gradient(45deg, #00b4d8, #0077b6);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.CryptoDetails__BackBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+}
+
+.CryptoDetails__TitleSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CryptoDetails__CoinInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.CryptoDetails__CoinIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.CryptoDetails__CoinDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.CryptoDetails__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.CryptoDetails__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Tabs Navigation */
+.CryptoDetails__Tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.CryptoDetails__Tab {
+  background: none;
+  border: none;
+  padding: 15px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border-bottom: 2px solid transparent;
+}
+
+.CryptoDetails__Tab:hover {
+  color: #00b4d8;
+}
+
+.CryptoDetails__Tab--active {
+  color: #00b4d8;
+  border-bottom-color: #00b4d8;
+}
+
+/* Content Area */
+.CryptoDetails__Content {
+  min-height: 500px;
+}
+
+/* Overview Section */
+.CryptoDetails__Overview {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Metrics Grid */
+.CryptoDetails__MetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.CryptoDetails__MetricCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.CryptoDetails__MetricCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #00b4d8;
+}
+
+.CryptoDetails__MetricLabel {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.CryptoDetails__MetricValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.CryptoDetails__MetricChange {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Chart Section */
+.CryptoDetails__ChartSection {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.CryptoDetails__ChartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.CryptoDetails__ChartTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.CryptoDetails__ChartTitleText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.CryptoDetails__ChartPrice {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.CryptoDetails__ChartChange {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.CryptoDetails__TimeRangeSelector {
+  display: flex;
+  gap: 5px;
+  background: #f8f9fa;
+  padding: 5px;
+  border-radius: 25px;
+  border: 1px solid #e9ecef;
+}
+
+.CryptoDetails__TimeButton {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.CryptoDetails__TimeButton--active {
+  background: #00b4d8;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 180, 216, 0.3);
+}
+
+.CryptoDetails__TimeButton:hover:not(.CryptoDetails__TimeButton--active) {
+  background: #e9ecef;
+}
+
+/* Chart Components */
+.CryptoDetails__ChartWrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  padding: 20px;
+}
+
+.CryptoDetails__ChartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.CryptoDetails__Chart {
+  max-width: 100%;
+  height: auto;
+}
+
+.CryptoDetails__ChartLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  gap: 15px;
+  color: #666;
+}
+
+.CryptoDetails__ChartLoading .CryptoDetails__Spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 180, 216, 0.3);
+  border-top: 3px solid #00b4d8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.CryptoDetails__ChartNote {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+}
+
+.CryptoDetails__ChartNote p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+/* Chart SVG Elements */
+.CryptoDetails__ChartGrid line {
+  stroke: #e9ecef;
+  stroke-width: 1;
+}
+
+.CryptoDetails__ChartYLabels text,
+.CryptoDetails__ChartXLabels text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  fill: #666;
+}
+
+.CryptoDetails__ChartYLabels text {
+  text-anchor: end;
+}
+
+.CryptoDetails__ChartXLabels text {
+  text-anchor: middle;
+}
+
+/* About Section */
+.CryptoDetails__AboutSection {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.CryptoDetails__AboutTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.CryptoDetails__AboutContent {
+  line-height: 1.7;
+  color: #555;
+  font-size: 1rem;
+}
+
+.CryptoDetails__AboutContent p {
+  margin-bottom: 15px;
+}
+
+/* News Section */
+.CryptoDetails__NewsSection {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.CryptoDetails__NewsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.CryptoDetails__NewsCard {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.CryptoDetails__NewsContent {
+  flex: 1;
+}
+
+.CryptoDetails__NewsHeadline {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.CryptoDetails__NewsSummary {
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+.CryptoDetails__NewsImage {
+  flex-shrink: 0;
+}
+
+.CryptoDetails__NewsImagePlaceholder {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+/* Markets Tab */
+.CryptoDetails__Markets {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.CryptoDetails__SectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.CryptoDetails__MarketGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.CryptoDetails__MarketCard {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  text-align: center;
+}
+
+.CryptoDetails__MarketCard h3 {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.CryptoDetails__MarketCard p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+/* Historical Tab */
+.CryptoDetails__Historical {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.CryptoDetails__HistoricalNote {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+}
+
+.CryptoDetails__HistoricalNote p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+/* News Tab */
+.CryptoDetails__News {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.CryptoDetails__NewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.CryptoDetails__NewsItem {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.CryptoDetails__NewsItem h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.CryptoDetails__NewsItem p {
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 10px 0;
+}
+
+.CryptoDetails__NewsDate {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Loading and Error States */
+.CryptoDetails__Loading,
+.CryptoDetails__Error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  gap: 20px;
+  text-align: center;
+}
+
+.CryptoDetails__Spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 180, 216, 0.3);
+  border-top: 4px solid #00b4d8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.CryptoDetails__Loading p,
+.CryptoDetails__Error p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.CryptoDetails__Error h2 {
+  color: #c53030;
+  margin-bottom: 15px;
+}
+
+.CryptoDetails__RetryBtn {
+  background: linear-gradient(45deg, #00b4d8, #0077b6);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.CryptoDetails__RetryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .CryptoDetails {
+    padding: 10px;
+  }
+  
+  .CryptoDetails__Title {
+    font-size: 2rem;
+  }
+  
+  .CryptoDetails__TitleSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .CryptoDetails__Tabs {
+    overflow-x: auto;
+    gap: 0;
+  }
+  
+  .CryptoDetails__Tab {
+    white-space: nowrap;
+    padding: 12px 20px;
+  }
+  
+  .CryptoDetails__MetricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .CryptoDetails__MetricCard {
+    padding: 15px;
+  }
+  
+  .CryptoDetails__MetricValue {
+    font-size: 1.5rem;
+  }
+  
+  .CryptoDetails__ChartHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .CryptoDetails__TimeRangeSelector {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .CryptoDetails__ChartWrapper {
+    padding: 10px;
+  }
+  
+  .CryptoDetails__ChartContainer {
+    min-height: 250px;
+  }
+  
+  .CryptoDetails__Chart {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .CryptoDetails__NewsCard {
+    flex-direction: column;
+  }
+  
+  .CryptoDetails__NewsImagePlaceholder {
+    align-self: center;
+  }
+  
+  .CryptoDetails__MarketGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .CryptoDetails__Title {
+    font-size: 1.5rem;
+  }
+  
+  .CryptoDetails__MetricsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .CryptoDetails__MarketGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .CryptoDetails__CoinIcon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .CryptoDetails__ChartContainer {
+    min-height: 200px;
+  }
+  
+  .CryptoDetails__Chart {
+    max-width: 400px;
+  }
+  
+  .CryptoDetails__ChartYLabels text,
+  .CryptoDetails__ChartXLabels text {
+    font-size: 10px;
+  }
+}

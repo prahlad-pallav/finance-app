@@ -9,6 +9,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
     { name: 'Home', id: 'home' },
     { name: 'Calculators', id: 'calculators' },
     { name: 'Currency', id: 'currency' },
+    { name: 'Cryptocurrency', id: 'cryptocurrency' },
     { name: 'Learn', id: 'learn' },
     { name: 'Tools', id: 'tools' }
   ];
