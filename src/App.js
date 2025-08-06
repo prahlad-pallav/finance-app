@@ -3,6 +3,7 @@ import './App.css';
 import SipCalculator from './page/Calculators/Pages/SipCalculator';
 import Calculators from './page/Calculators/Calculators';
 import Navbar from './page/Components/Navbar';
+import Currency from './page/Currency/Currency';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -13,6 +14,8 @@ function App() {
         return <SipCalculator />;
       case 'calculators':
         return <Calculators />;
+      case 'currency':
+        return <Currency onBack={() => setCurrentPage('home')} />;
       case 'learn':
         return (
           <div className="page-container">
@@ -63,7 +66,7 @@ function App() {
             <section className="features" id="features">
               <div className="container">
                 <div className="section-header">
-                  <h2>Why Choose FinanceFlow?</h2>
+                  <h2>Why Choose FinApp?</h2>
                   <p>Everything you need to manage your finances effectively</p>
                 </div>
                 <div className="features-grid">
@@ -96,6 +99,11 @@ function App() {
                     <div className="feature-icon">📈</div>
                     <h3>Investment Tracking</h3>
                     <p>Monitor your investments and get real-time market data to make informed decisions.</p>
+                  </div>
+                  <div className="feature-card" onClick={() => setCurrentPage('currency')}>
+                    <div className="feature-icon">💱</div>
+                    <h3>Currency Converter</h3>
+                    <p>Track INR exchange rates and view historical trends with real-time currency conversion.</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +161,7 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <div className="footer-section">
-              <h3>FinanceFlow</h3>
+              <h3>FinApp</h3>
               <p>Empowering individuals to achieve financial freedom through smart money management.</p>
             </div>
             <div className="footer-section">
@@ -197,7 +205,7 @@ function App() {
             </div>
           </div>
           <div className="footer-bottom">
-            <p>&copy; 2024 FinanceFlow. All rights reserved.</p>
+            <p>&copy; 2024 FinApp. All rights reserved.</p>
           </div>
         </div>
       </footer>

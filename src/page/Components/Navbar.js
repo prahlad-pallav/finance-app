@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import Logo from '../../Assests/Logo.png';
 
 const Navbar = ({ currentPage, setCurrentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,6 +8,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   const navItems = [
     { name: 'Home', id: 'home' },
     { name: 'Calculators', id: 'calculators' },
+    { name: 'Currency', id: 'currency' },
     { name: 'Learn', id: 'learn' },
     { name: 'Tools', id: 'tools' }
   ];
@@ -26,13 +28,9 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         {/* Logo Section */}
         <div className="Navbar__Logo" onClick={() => handleNavClick('home')}>
           <div className="Navbar__LogoIcon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
-              <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <img src={Logo} alt="FinApp Logo" className="Navbar__LogoImage" />
           </div>
-          <span className="Navbar__LogoText">FinCalc</span>
+          <span className="Navbar__LogoText">FinApp</span>
         </div>
 
         {/* Desktop Navigation */}
