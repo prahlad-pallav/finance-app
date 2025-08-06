@@ -93,6 +93,84 @@
   border-radius: 1px;
 }
 
+/* Dropdown Block */
+.Navbar__Dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.Navbar__DropdownToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.Navbar__DropdownArrow {
+  transition: transform 0.2s ease;
+  margin-left: 0.25rem;
+}
+
+.Navbar__DropdownArrow--open {
+  transform: rotate(180deg);
+}
+
+.Navbar__DropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 150px;
+  z-index: 1001;
+  animation: dropdownSlideDown 0.2s ease-out;
+  margin-top: 0.5rem;
+}
+
+.Navbar__DropdownItem {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-radius: 0;
+}
+
+.Navbar__DropdownItem:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.Navbar__DropdownItem:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.Navbar__DropdownItem:hover {
+  background: #f8f9fa;
+  color: #00b4d8;
+}
+
+.Navbar__DropdownItem:active {
+  background: #e9ecef;
+}
+
+@keyframes dropdownSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Actions Block */
 .Navbar__Actions {
   display: flex;
@@ -226,12 +304,17 @@
   }
   
   .Navbar__NotificationBtn {
-    padding: 0.4rem;
+    padding: 0.25rem;
   }
   
   .Navbar__ProfileAvatar {
     width: 32px;
     height: 32px;
+  }
+  
+  /* Hide dropdown on mobile since it's integrated into mobile menu */
+  .Navbar__Dropdown {
+    display: none;
   }
 }
 
@@ -249,12 +332,24 @@
   }
   
   .Navbar__NotificationBtn {
-    padding: 0.3rem;
+    padding: 0.2rem;
   }
   
   .Navbar__ProfileAvatar {
     width: 28px;
     height: 28px;
+  }
+}
+
+/* Dropdown responsive adjustments */
+@media (max-width: 1024px) {
+  .Navbar__DropdownMenu {
+    min-width: 120px;
+  }
+  
+  .Navbar__DropdownItem {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
   }
 }
 

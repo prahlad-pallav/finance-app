@@ -1,0 +1,430 @@
+/* Links Block */
+.Links {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  padding: 2rem 0;
+}
+
+.Links__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header Block */
+.Links__Header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.Links__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Links__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Controls Block */
+.Links__Controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Search Block */
+.Links__Search {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.Links__SearchInput {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Links__SearchInput:focus {
+  outline: none;
+  border-color: #00b4d8;
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+.Links__SearchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+}
+
+/* Categories Block */
+.Links__Categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.Links__CategoryBtn {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Links__CategoryBtn:hover {
+  border-color: #00b4d8;
+  color: #00b4d8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.15);
+}
+
+.Links__CategoryBtn--active {
+  background: #00b4d8;
+  border-color: #00b4d8;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+}
+
+/* Results Block */
+.Links__Results {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.Links__ResultsCount {
+  font-size: 0.9rem;
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Grid Block */
+.Links__Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Card Block */
+.Links__Card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #f0f0f0;
+}
+
+.Links__Card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-color: #00b4d8;
+}
+
+.Links__Card:active {
+  transform: translateY(-2px);
+}
+
+/* Card Header Block */
+.Links__CardHeader {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.Links__CardIcon {
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.Links__CardImage {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.Links__Card:hover .Links__CardImage {
+  transform: scale(1.05);
+}
+
+.Links__CardEmoji {
+  font-size: 2rem;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.Links__Card:hover .Links__CardEmoji {
+  transform: scale(1.05);
+}
+
+.Links__CardInfo {
+  flex: 1;
+}
+
+.Links__CardTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Links__CardDescription {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Card Footer Block */
+.Links__CardFooter {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 1rem;
+}
+
+.Links__CardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.Links__CardTag {
+  background: #f8f9fa;
+  color: #666;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Links__CardAction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.Links__CardUrl {
+  font-size: 0.8rem;
+  color: #00b4d8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.Links__CardArrow {
+  color: #00b4d8;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.Links__Card:hover .Links__CardArrow {
+  transform: translateX(4px);
+}
+
+/* Empty State Block */
+.Links__Empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.Links__EmptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.Links__EmptyTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Links__EmptyText {
+  font-size: 1rem;
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Links {
+    padding: 1rem 0;
+  }
+  
+  .Links__Container {
+    padding: 0 0.75rem;
+  }
+  
+  .Links__Title {
+    font-size: 2rem;
+  }
+  
+  .Links__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .Links__Grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .Links__Card {
+    padding: 1.25rem;
+  }
+  
+  .Links__CardHeader {
+    gap: 0.75rem;
+  }
+  
+  .Links__CardIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .Links__Categories {
+    gap: 0.25rem;
+  }
+  
+  .Links__CategoryBtn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Links__Container {
+    padding: 0 0.5rem;
+  }
+  
+  .Links__Title {
+    font-size: 1.75rem;
+  }
+  
+  .Links__Card {
+    padding: 1rem;
+  }
+  
+  .Links__CardHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .Links__CardIcon {
+    align-self: center;
+  }
+  
+  .Links__Categories {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .Links__CategoryBtn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+/* Animation for cards */
+.Links__Card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for cards */
+.Links__Card:nth-child(1) { animation-delay: 0.1s; }
+.Links__Card:nth-child(2) { animation-delay: 0.2s; }
+.Links__Card:nth-child(3) { animation-delay: 0.3s; }
+.Links__Card:nth-child(4) { animation-delay: 0.4s; }
+.Links__Card:nth-child(5) { animation-delay: 0.5s; }
+.Links__Card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Focus states for accessibility */
+.Links__SearchInput:focus,
+.Links__CategoryBtn:focus,
+.Links__Card:focus {
+  outline: 2px solid #00b4d8;
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.Links__Card--loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.Links__Card--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #00b4d8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

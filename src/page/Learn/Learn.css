@@ -1,0 +1,418 @@
+/* Learn Block */
+.Learn {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  padding: 2rem 0;
+}
+
+.Learn__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header Block */
+.Learn__Header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.Learn__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Learn__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Navigation Block */
+.Learn__Navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.Learn__Tab {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.Learn__Tab:hover {
+  border-color: var(--tab-color);
+  color: var(--tab-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Learn__Tab--active {
+  background: var(--tab-color);
+  border-color: var(--tab-color);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Learn__TabIcon {
+  font-size: 1.5rem;
+}
+
+.Learn__TabTitle {
+  font-weight: 600;
+}
+
+/* Content Block */
+.Learn__Content {
+  margin-bottom: 3rem;
+}
+
+/* Overview Block */
+.Learn__Overview {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.Learn__OverviewHeader {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.Learn__OverviewIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.Learn__OverviewInfo {
+  flex: 1;
+}
+
+.Learn__OverviewTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Learn__OverviewDescription {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Topics Block */
+.Learn__Topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.Learn__TopicCard {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.Learn__TopicCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.Learn__TopicHeader {
+  margin-bottom: 1rem;
+}
+
+.Learn__TopicTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Learn__TopicDescription {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Learn__TopicDetails {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 1rem;
+}
+
+.Learn__TopicList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Learn__TopicItem {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.Learn__TopicItem:last-child {
+  border-bottom: none;
+}
+
+.Learn__TopicItem::before {
+  content: '•';
+  color: #00b4d8;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+}
+
+/* Progress Block */
+.Learn__Progress {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.Learn__ProgressBar {
+  width: 100%;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.Learn__ProgressFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.Learn__ProgressText {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Quick Navigation Block */
+.Learn__QuickNav {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.Learn__QuickNavTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Learn__QuickNavGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.Learn__QuickNavItem {
+  background: #f8f9fa;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Learn__QuickNavItem:hover {
+  border-color: var(--item-color);
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Learn__QuickNavItem--active {
+  background: var(--item-color);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Learn__QuickNavIcon {
+  font-size: 1.5rem;
+}
+
+.Learn__QuickNavText {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Learn {
+    padding: 1rem 0;
+  }
+  
+  .Learn__Container {
+    padding: 0 0.75rem;
+  }
+  
+  .Learn__Title {
+    font-size: 2rem;
+  }
+  
+  .Learn__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .Learn__Navigation {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .Learn__Tab {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .Learn__OverviewHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .Learn__OverviewIcon {
+    align-self: center;
+  }
+  
+  .Learn__Topics {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .Learn__QuickNavGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .Learn__Container {
+    padding: 0 0.5rem;
+  }
+  
+  .Learn__Title {
+    font-size: 1.75rem;
+  }
+  
+  .Learn__Overview {
+    padding: 1.5rem;
+  }
+  
+  .Learn__TopicCard {
+    padding: 1.25rem;
+  }
+  
+  .Learn__QuickNavGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .Learn__QuickNavItem {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+/* Animation for cards */
+.Learn__TopicCard {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for cards */
+.Learn__TopicCard:nth-child(1) { animation-delay: 0.1s; }
+.Learn__TopicCard:nth-child(2) { animation-delay: 0.2s; }
+.Learn__TopicCard:nth-child(3) { animation-delay: 0.3s; }
+.Learn__TopicCard:nth-child(4) { animation-delay: 0.4s; }
+
+/* Focus states for accessibility */
+.Learn__Tab:focus,
+.Learn__TopicCard:focus,
+.Learn__QuickNavItem:focus {
+  outline: 2px solid #00b4d8;
+  outline-offset: 2px;
+}
+
+/* Hover effects */
+.Learn__TopicCard:hover .Learn__TopicTitle {
+  color: #00b4d8;
+}
+
+.Learn__TopicTitle {
+  transition: color 0.2s ease;
+}

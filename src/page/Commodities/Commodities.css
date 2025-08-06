@@ -1,0 +1,538 @@
+/* Commodities Block */
+.Commodities {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  padding: 2rem 0;
+}
+
+.Commodities__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header Block */
+.Commodities__Header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.Commodities__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Controls Block */
+.Commodities__Controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.Commodities__RefreshBtn {
+  background: white;
+  border: 2px solid #00b4d8;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #00b4d8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__RefreshBtn:hover:not(:disabled) {
+  background: #00b4d8;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+}
+
+.Commodities__RefreshBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.Commodities__Spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.Commodities__LastUpdated {
+  font-size: 0.9rem;
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Error State */
+.Commodities__Error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #dc2626;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Loading State */
+.Commodities__Loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.Commodities__LoadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #00b4d8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+.Commodities__Loading p {
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Grid Block */
+.Commodities__Grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Card Block */
+.Commodities__Card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.Commodities__Card:hover:not(.Commodities__Card--error) {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-color: #00b4d8;
+}
+
+.Commodities__Card--error {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Card Header Block */
+.Commodities__CardHeader {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.Commodities__CardIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.Commodities__CardInfo {
+  flex: 1;
+}
+
+.Commodities__CardTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__CardSymbol {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Card Price Block */
+.Commodities__CardPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.Commodities__CardAmount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__CardError {
+  font-size: 1rem;
+  color: #dc2626;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+
+.Commodities__CardTime {
+  font-size: 0.8rem;
+  color: #999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Summary Block */
+.Commodities__Summary {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.Commodities__SummaryTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__SummaryStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.Commodities__SummaryStat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.Commodities__SummaryLabel {
+  font-size: 0.9rem;
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__SummaryValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__SummaryLink {
+  color: #00b4d8;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.Commodities__SummaryLink:hover {
+  color: #0099cc;
+  text-decoration: underline;
+}
+
+/* Modal Block */
+.Commodities__Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.Commodities__ModalContent {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Commodities__ModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.Commodities__ModalTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__ModalClose {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.Commodities__ModalClose:hover {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.Commodities__ModalBody {
+  padding: 1.5rem;
+}
+
+.Commodities__ModalPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.Commodities__ModalAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__ModalChange {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__ModalDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.Commodities__ModalDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.Commodities__ModalLabel {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Commodities__ModalValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Commodities {
+    padding: 1rem 0;
+  }
+  
+  .Commodities__Container {
+    padding: 0 0.75rem;
+  }
+  
+  .Commodities__Title {
+    font-size: 2rem;
+  }
+  
+  .Commodities__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .Commodities__Controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .Commodities__Grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .Commodities__Card {
+    padding: 1.25rem;
+  }
+  
+  .Commodities__CardHeader {
+    gap: 0.75rem;
+  }
+  
+  .Commodities__CardIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .Commodities__SummaryStats {
+    grid-template-columns: 1fr;
+  }
+  
+  .Commodities__ModalContent {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .Commodities__Container {
+    padding: 0 0.5rem;
+  }
+  
+  .Commodities__Title {
+    font-size: 1.75rem;
+  }
+  
+  .Commodities__Card {
+    padding: 1rem;
+  }
+  
+  .Commodities__CardHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .Commodities__CardIcon {
+    align-self: center;
+  }
+  
+  .Commodities__ModalHeader {
+    padding: 1rem;
+  }
+  
+  .Commodities__ModalBody {
+    padding: 1rem;
+  }
+  
+  .Commodities__ModalAmount {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation for cards */
+.Commodities__Card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for cards */
+.Commodities__Card:nth-child(1) { animation-delay: 0.1s; }
+.Commodities__Card:nth-child(2) { animation-delay: 0.2s; }
+.Commodities__Card:nth-child(3) { animation-delay: 0.3s; }
+.Commodities__Card:nth-child(4) { animation-delay: 0.4s; }
+.Commodities__Card:nth-child(5) { animation-delay: 0.5s; }
+.Commodities__Card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Focus states for accessibility */
+.Commodities__RefreshBtn:focus,
+.Commodities__Card:focus,
+.Commodities__ModalClose:focus {
+  outline: 2px solid #00b4d8;
+  outline-offset: 2px;
+}
+
+/* Hover effects */
+.Commodities__Card:hover .Commodities__CardIcon {
+  transform: scale(1.05);
+}
+
+.Commodities__CardIcon {
+  transition: transform 0.2s ease;
+}

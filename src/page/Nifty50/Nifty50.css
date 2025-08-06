@@ -1,0 +1,927 @@
+/* Nifty50 Block */
+.Nifty50 {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  padding: 2rem 0;
+}
+
+.Nifty50__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header Block */
+.Nifty50__Header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.Nifty50__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__Subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Controls Block */
+.Nifty50__Controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.Nifty50__RefreshBtn {
+  background: white;
+  border: 2px solid #00b4d8;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #00b4d8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__RefreshBtn:hover:not(:disabled) {
+  background: #00b4d8;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+}
+
+.Nifty50__RefreshBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.Nifty50__Spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.Nifty50__Sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.Nifty50__Sort label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__SortSelect {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__SortSelect:focus {
+  outline: none;
+  border-color: #00b4d8;
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+.Nifty50__Filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.Nifty50__Filter label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__Results {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.Nifty50__ResultsCount {
+  font-size: 1rem;
+  color: #666;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.Nifty50__LastUpdated {
+  font-size: 0.9rem;
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Error State */
+.Nifty50__Error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #dc2626;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Loading State */
+.Nifty50__Loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.Nifty50__LoadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #00b4d8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+.Nifty50__Loading p {
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Index Card Block */
+.Nifty50__IndexCard {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  border: 1px solid #f0f0f0;
+}
+
+.Nifty50__IndexHeader {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.Nifty50__IndexIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00b4d8 0%, #0099cc 100%);
+  border-radius: 16px;
+  font-size: 2.5rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.Nifty50__IndexInfo {
+  flex: 1;
+}
+
+.Nifty50__IndexName {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__IndexSymbol {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__IndexPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.Nifty50__IndexAmount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__IndexChange {
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__IndexDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.Nifty50__IndexDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.Nifty50__IndexDetail span:first-child {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__IndexDetail span:last-child {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Stocks Grid Block */
+.Nifty50__StocksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Stocks List Block */
+.Nifty50__StocksList {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.Nifty50__ListHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr 1fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__ListHeaderCell {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.Nifty50__ListHeaderCell--sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.Nifty50__ListHeaderCell--sortable:hover {
+  background: #e3f2fd;
+  color: #00b4d8;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem;
+}
+
+.Nifty50__ListHeaderCell--sortable:active {
+  transform: scale(0.98);
+}
+
+/* List Item Block */
+.Nifty50__ListItem {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr 1fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-items: center;
+}
+
+.Nifty50__ListItem:hover:not(.Nifty50__ListItem--error) {
+  background: #f8f9fa;
+  transform: translateX(4px);
+}
+
+.Nifty50__ListItem--error {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.Nifty50__ListItem:last-child {
+  border-bottom: none;
+}
+
+.Nifty50__ListItemCell {
+  display: flex;
+  align-items: center;
+}
+
+.Nifty50__ListItemCell--stock {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.Nifty50__ListItemCell--price,
+.Nifty50__ListItemCell--change,
+.Nifty50__ListItemCell--volume,
+.Nifty50__ListItemCell--sector {
+  justify-content: flex-start;
+}
+
+.Nifty50__StockInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.Nifty50__StockName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__StockSymbol {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__StockAmount {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__StockChange {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__StockVolume {
+  font-size: 0.9rem;
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__StockSector {
+  font-size: 0.8rem;
+  color: #00b4d8;
+  background: #e3f2fd;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__ListItemCell--sector {
+  justify-content: flex-start;
+}
+
+/* Stock Links */
+.Nifty50__ListItemCell--links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.Nifty50__StockLinks {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.Nifty50__StockLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  color: #6c757d;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.Nifty50__StockLink:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #495057;
+}
+
+.Nifty50__StockLink--tradingview {
+  background: #f0f8ff;
+  border-color: #2962ff;
+  color: #2962ff;
+}
+
+.Nifty50__StockLink--tradingview:hover {
+  background: #2962ff;
+  color: white;
+}
+
+.Nifty50__StockLink--screener {
+  background: #f0f9ff;
+  border-color: #00b4d8;
+  color: #00b4d8;
+}
+
+.Nifty50__StockLink--screener:hover {
+  background: #00b4d8;
+  color: white;
+}
+
+.Nifty50__StockLink svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.Nifty50__StockLink:hover svg {
+  transform: scale(1.1);
+}
+
+.Nifty50__StockLinkImage {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  border-radius: 2px;
+}
+
+.Nifty50__StockLink:hover .Nifty50__StockLinkImage {
+  transform: scale(1.1);
+}
+
+.Nifty50__StockError {
+  font-size: 0.9rem;
+  color: #dc2626;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Summary Block */
+.Nifty50__Summary {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.Nifty50__SummaryTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__SummaryStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.Nifty50__SummaryStat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.Nifty50__SummaryLabel {
+  font-size: 0.9rem;
+  color: #666;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__SummaryValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__SummaryLink {
+  color: #00b4d8;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.Nifty50__SummaryLink:hover {
+  color: #0099cc;
+  text-decoration: underline;
+}
+
+/* Modal Block */
+.Nifty50__Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.Nifty50__ModalContent {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Nifty50__ModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.Nifty50__ModalTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__ModalClose {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.Nifty50__ModalClose:hover {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.Nifty50__ModalBody {
+  padding: 1.5rem;
+}
+
+.Nifty50__ModalPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.Nifty50__ModalAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__ModalChange {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__ModalDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.Nifty50__ModalDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.Nifty50__ModalLabel {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Nifty50__ModalValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Nifty50 {
+    padding: 1rem 0;
+  }
+  
+  .Nifty50__Container {
+    padding: 0 0.75rem;
+  }
+  
+  .Nifty50__Title {
+    font-size: 2rem;
+  }
+  
+  .Nifty50__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .Nifty50__Controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .Nifty50__IndexHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .Nifty50__IndexIcon {
+    align-self: center;
+  }
+  
+  .Nifty50__IndexAmount {
+    font-size: 2rem;
+  }
+  
+  .Nifty50__StocksList {
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .Nifty50__ListHeader {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    display: none; /* Hide header on mobile */
+  }
+  
+  .Nifty50__ListItem {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .Nifty50__ListItemCell {
+    justify-content: space-between;
+    padding: 0.25rem 0;
+  }
+  
+  .Nifty50__ListItemCell--stock {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .Nifty50__ListItemCell--stock::after {
+    content: attr(data-label);
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .Nifty50__ListItemCell--price::before {
+    content: "Price: ";
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .Nifty50__ListItemCell--change::before {
+    content: "Change: ";
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .Nifty50__ListItemCell--volume::before {
+    content: "Volume: ";
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .Nifty50__ListItemCell--sector::before {
+    content: "Sector: ";
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .Nifty50__ListItemCell--links::before {
+    content: "Links: ";
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .Nifty50__StockLinks {
+    gap: 6px;
+  }
+
+  .Nifty50__StockLink {
+    width: 28px;
+    height: 28px;
+  }
+
+  .Nifty50__StockLink svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .Nifty50__StockLinkImage {
+    width: 18px;
+    height: 18px;
+  }
+
+  .Nifty50__SummaryStats {
+    grid-template-columns: 1fr;
+  }
+  
+  .Nifty50__ModalContent {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .Nifty50__Container {
+    padding: 0 0.5rem;
+  }
+  
+  .Nifty50__Title {
+    font-size: 1.75rem;
+  }
+  
+  .Nifty50__IndexCard {
+    padding: 1.5rem;
+  }
+  
+  .Nifty50__StockCard {
+    padding: 1rem;
+  }
+  
+  .Nifty50__ModalHeader {
+    padding: 1rem;
+  }
+  
+  .Nifty50__ModalBody {
+    padding: 1rem;
+  }
+  
+  .Nifty50__ModalAmount {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation for cards */
+.Nifty50__StockCard {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for cards */
+.Nifty50__StockCard:nth-child(1) { animation-delay: 0.1s; }
+.Nifty50__StockCard:nth-child(2) { animation-delay: 0.2s; }
+.Nifty50__StockCard:nth-child(3) { animation-delay: 0.3s; }
+.Nifty50__StockCard:nth-child(4) { animation-delay: 0.4s; }
+.Nifty50__StockCard:nth-child(5) { animation-delay: 0.5s; }
+.Nifty50__StockCard:nth-child(6) { animation-delay: 0.6s; }
+
+/* Focus states for accessibility */
+.Nifty50__RefreshBtn:focus,
+.Nifty50__SortSelect:focus,
+.Nifty50__StockCard:focus,
+.Nifty50__ModalClose:focus {
+  outline: 2px solid #00b4d8;
+  outline-offset: 2px;
+}
+
+/* Hover effects */
+.Nifty50__StockCard:hover .Nifty50__StockName {
+  color: #00b4d8;
+}
+
+.Nifty50__StockName {
+  transition: color 0.2s ease;
+}

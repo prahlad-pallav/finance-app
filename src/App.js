@@ -5,6 +5,10 @@ import Calculators from './page/Calculators/Calculators';
 import Navbar from './page/Components/Navbar';
 import Currency from './page/Currency/Currency';
 import Cryptocurrency from './page/Cryptocurrency/Cryptocurrency';
+import Nifty50 from './page/Nifty50/Nifty50';
+import Links from './page/Links/Links';
+import Commodities from './page/Commodities/Commodities';
+import Learn from './page/Learn/Learn';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -19,13 +23,14 @@ function App() {
         return <Currency onBack={() => setCurrentPage('home')} />;
       case 'cryptocurrency':
         return <Cryptocurrency />;
+      case 'nifty50':
+        return <Nifty50 />;
+      case 'links':
+        return <Links />;
+      case 'commodities':
+        return <Commodities />;
       case 'learn':
-        return (
-          <div className="page-container">
-            <h1>Learn</h1>
-            <p>Educational content and financial literacy resources coming soon.</p>
-          </div>
-        );
+        return <Learn />;
       case 'tools':
         return (
           <div className="page-container">
