@@ -1,70 +1,49 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import './SipCalculator.css';
 
 const SipCalculator = ({ onBack }) => {
   const [formData, setFormData] = useState({
     investmentAmount: 10000,
     expectedReturn: 12,
-    tenure: 10,
-    frequency: 'monthly',
-    startDate: new Date().toISOString().split('T')[0]
+    tenure: 10
   });
 
   const [results, setResults] = useState({
     totalInvestment: 0,
     totalReturns: 0,
     maturityAmount: 0,
-    yearlyBreakdown: []
+    yearlyBreakdown: [],
+    chartData: []
   });
 
   const calculateSIP = useCallback(() => {
-    const { investmentAmount, expectedReturn, tenure, frequency } = formData;
+    const { investmentAmount, expectedReturn, tenure } = formData;
     const monthlyInvestment = parseFloat(investmentAmount);
     const rate = parseFloat(expectedReturn) / 100;
     const time = parseFloat(tenure);
     
     if (monthlyInvestment && rate && time) {
-      let investmentPerPeriod, periodsPerYear, totalPeriods;
+      const monthlyRate = rate / 12;
+      const totalMonths = time * 12;
       
-      // Adjust for investment frequency
-      switch (frequency) {
-        case 'monthly':
-          investmentPerPeriod = monthlyInvestment;
-          periodsPerYear = 12;
-          totalPeriods = time * 12;
-          break;
-        case 'weekly':
-          investmentPerPeriod = monthlyInvestment / 4;
-          periodsPerYear = 52;
-          totalPeriods = time * 52;
-          break;
-        case 'quarterly':
-          investmentPerPeriod = monthlyInvestment * 3;
-          periodsPerYear = 4;
-          totalPeriods = time * 4;
-          break;
-        default:
-          investmentPerPeriod = monthlyInvestment;
-          periodsPerYear = 12;
-          totalPeriods = time * 12;
-      }
+      const maturityAmount = monthlyInvestment * 
+        ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate) * 
+        (1 + monthlyRate);
       
-      const periodRate = rate / periodsPerYear;
-      const maturityAmount = investmentPerPeriod * 
-        ((Math.pow(1 + periodRate, totalPeriods) - 1) / periodRate) * 
-        (1 + periodRate);
-      
-      const totalInvestment = investmentPerPeriod * totalPeriods;
+      const totalInvestment = monthlyInvestment * totalMonths;
       const totalReturns = maturityAmount - totalInvestment;
 
       // Calculate yearly breakdown
       const yearlyBreakdown = [];
+      const chartData = [];
+      
       for (let year = 1; year <= time; year++) {
-        const yearPeriods = year * periodsPerYear;
-        const yearAmount = investmentPerPeriod * 
-          ((Math.pow(1 + periodRate, yearPeriods) - 1) / periodRate) * 
-          (1 + periodRate);
-        const yearInvestment = investmentPerPeriod * yearPeriods;
+        const yearMonths = year * 12;
+        const yearAmount = monthlyInvestment * 
+          ((Math.pow(1 + monthlyRate, yearMonths) - 1) / monthlyRate) * 
+          (1 + monthlyRate);
+        const yearInvestment = monthlyInvestment * yearMonths;
         const yearReturns = yearAmount - yearInvestment;
         
         yearlyBreakdown.push({
@@ -73,13 +52,21 @@ const SipCalculator = ({ onBack }) => {
           returns: yearReturns,
           total: yearAmount
         });
+
+        chartData.push({
+          year: `Year ${year}`,
+          investment: Math.round(yearInvestment),
+          returns: Math.round(yearReturns),
+          total: Math.round(yearAmount)
+        });
       }
 
       setResults({
         totalInvestment: Math.round(totalInvestment),
         totalReturns: Math.round(totalReturns),
         maturityAmount: Math.round(maturityAmount),
-        yearlyBreakdown
+        yearlyBreakdown,
+        chartData
       });
     }
   }, [formData]);
@@ -104,13 +91,20 @@ const SipCalculator = ({ onBack }) => {
     }).format(amount);
   };
 
-  const getFrequencyLabel = (frequency) => {
-    switch (frequency) {
-      case 'monthly': return 'Monthly';
-      case 'weekly': return 'Weekly';
-      case 'quarterly': return 'Quarterly';
-      default: return 'Monthly';
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="SipCalculator__Tooltip">
+          <p className="SipCalculator__TooltipLabel">{label}</p>
+          {payload.map((entry, index) => (
+            <p key={index} style={{ color: entry.color }}>
+              {entry.name}: {formatCurrency(entry.value)}
+            </p>
+          ))}
+        </div>
+      );
     }
+    return null;
   };
 
   return (
@@ -128,7 +122,7 @@ const SipCalculator = ({ onBack }) => {
             <h2 className="SipCalculator__SectionTitle">Investment Details</h2>
             <div className="SipCalculator__InputGrid">
               <div className="SipCalculator__InputGroup">
-                <label htmlFor="investmentAmount" className="SipCalculator__Label">Investment Amount (₹)</label>
+                <label htmlFor="investmentAmount" className="SipCalculator__Label">Monthly Investment Amount (₹)</label>
                 <input
                   type="number"
                   id="investmentAmount"
@@ -155,23 +149,8 @@ const SipCalculator = ({ onBack }) => {
                   </div>
                 </div>
                 <div className="SipCalculator__AmountPreview">
-                  {getFrequencyLabel(formData.frequency)} Investment: {formatCurrency(formData.investmentAmount)}
+                  Monthly Investment: {formatCurrency(formData.investmentAmount)}
                 </div>
-              </div>
-
-              <div className="SipCalculator__InputGroup">
-                <label htmlFor="frequency" className="SipCalculator__Label">Investment Frequency</label>
-                <select
-                  id="frequency"
-                  name="frequency"
-                  value={formData.frequency}
-                  onChange={(e) => setFormData(prev => ({ ...prev, frequency: e.target.value }))}
-                  className="SipCalculator__Select"
-                >
-                  <option value="monthly">Monthly</option>
-                  <option value="weekly">Weekly</option>
-                  <option value="quarterly">Quarterly</option>
-                </select>
               </div>
 
               <div className="SipCalculator__InputGroup">
@@ -231,18 +210,6 @@ const SipCalculator = ({ onBack }) => {
                   </div>
                 </div>
               </div>
-
-              <div className="SipCalculator__InputGroup">
-                <label htmlFor="startDate" className="SipCalculator__Label">Start Date</label>
-                <input
-                  type="date"
-                  id="startDate"
-                  name="startDate"
-                  value={formData.startDate}
-                  onChange={(e) => setFormData(prev => ({ ...prev, startDate: e.target.value }))}
-                  className="SipCalculator__Input"
-                />
-              </div>
             </div>
           </div>
 
@@ -272,16 +239,53 @@ const SipCalculator = ({ onBack }) => {
               </div>
             </div>
 
+            {/* Investment Chart */}
+            {results.chartData.length > 0 && (
+              <div className="SipCalculator__ChartSection">
+                <h3 className="SipCalculator__ChartTitle">Investment Growth Over Time</h3>
+                <div className="SipCalculator__ChartContainer">
+                  <ResponsiveContainer width="100%" height={400}>
+                    <LineChart data={results.chartData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="year" />
+                      <YAxis 
+                        tickFormatter={(value) => `${(value / 100000).toFixed(1)}L`}
+                        label={{ value: 'Amount (₹)', angle: -90, position: 'insideLeft' }}
+                      />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Legend />
+                      <Line 
+                        type="monotone" 
+                        dataKey="investment" 
+                        stroke="#007bff" 
+                        strokeWidth={3}
+                        name="Total Investment"
+                        dot={{ fill: '#007bff', strokeWidth: 2, r: 4 }}
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="total" 
+                        stroke="#28a745" 
+                        strokeWidth={3}
+                        name="Total Value"
+                        dot={{ fill: '#28a745', strokeWidth: 2, r: 4 }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            )}
+
             {/* Investment Summary */}
             <div className="SipCalculator__SummarySection">
               <h3 className="SipCalculator__SummaryTitle">SIP Summary</h3>
               <div className="SipCalculator__SummaryGrid">
                 <div className="SipCalculator__SummaryCard">
                   <span className="SipCalculator__SummaryLabel">Investment Frequency</span>
-                  <span className="SipCalculator__SummaryValue">{getFrequencyLabel(formData.frequency)}</span>
+                  <span className="SipCalculator__SummaryValue">Monthly</span>
                 </div>
                 <div className="SipCalculator__SummaryCard">
-                  <span className="SipCalculator__SummaryLabel">Per Period Investment</span>
+                  <span className="SipCalculator__SummaryLabel">Monthly Investment</span>
                   <span className="SipCalculator__SummaryValue">{formatCurrency(formData.investmentAmount)}</span>
                 </div>
                 <div className="SipCalculator__SummaryCard">

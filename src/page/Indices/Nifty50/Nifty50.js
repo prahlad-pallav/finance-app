@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './Nifty50.css';
 import Stock from './Stock';
-import TradingViewLogo from '../../Assests/TradingView.png';
-import ScreenerLogo from '../../Assests/Screener.jpeg';
+import TradingViewLogo from '../../../Assests/TradingView.png';
+import ScreenerLogo from '../../../Assests/Screener.jpeg';
 
 // Nifty 50 index symbol
 const NIFTY_SYMBOL = '^NSEI';

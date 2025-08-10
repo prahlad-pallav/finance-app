@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Calculators.css';
 import SipCalculator from './Pages/SipCalculator';
+import CompoundInterestCalculator from './Pages/CompoundInterest/CompoundInterestCalculator';
+import SimpleInterestCalculator from './Pages/SimpleInterest/SimpleInterestCalculator';
+import PresentFutureValueCalculator from './Pages/PresentFutureValue/PresentFutureValueCalculator';
 import SipSetupCalculator from './Pages/SipSetupCalculator';
 import LumpsumCalculator from './Pages/LumpsumCalculator';
 import EmiCalculator from './Pages/EmiCalculator';
@@ -15,6 +18,27 @@ const Calculators = () => {
       description: 'Calculate your Systematic Investment Plan returns and future value',
       icon: '📈',
       color: '#4CAF50'
+    },
+    {
+      id: 'compound-interest',
+      title: 'Compound Interest Calculator',
+      description: 'Calculate compound interest and compare with simple interest',
+      icon: '💹',
+      color: '#FF5722'
+    },
+    {
+      id: 'simple-interest',
+      title: 'Simple Interest Calculator',
+      description: 'Calculate simple interest and understand the difference from compound',
+      icon: '📊',
+      color: '#FF9800'
+    },
+    {
+      id: 'present-future-value',
+      title: 'Present & Future Value',
+      description: 'Calculate time value of money and understand PV vs FV',
+      icon: '⏰',
+      color: '#6f42c1'
     },
     {
       id: 'sip-setup',
@@ -51,6 +75,12 @@ const Calculators = () => {
     switch (activeCalculator) {
       case 'sip-calculator':
         return <SipCalculator onBack={handleBackToDashboard} />;
+      case 'compound-interest':
+        return <CompoundInterestCalculator onBack={handleBackToDashboard} />;
+      case 'simple-interest':
+        return <SimpleInterestCalculator onBack={handleBackToDashboard} />;
+      case 'present-future-value':
+        return <PresentFutureValueCalculator onBack={handleBackToDashboard} />;
       case 'sip-setup':
         return <SipSetupCalculator onBack={handleBackToDashboard} />;
       case 'lumpsum':

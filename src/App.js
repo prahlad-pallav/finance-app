@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 import SipCalculator from './page/Calculators/Pages/SipCalculator';
+import CompoundInterestCalculator from './page/Calculators/Pages/CompoundInterest/CompoundInterestCalculator';
 import Calculators from './page/Calculators/Calculators';
 import Navbar from './page/Components/Navbar';
+import Footer from './page/Components/Footer';
 import Currency from './page/Currency/Currency';
 import Cryptocurrency from './page/Cryptocurrency/Cryptocurrency';
-import Nifty50 from './page/Nifty50/Nifty50';
+import Nifty50 from './page/Indices/Nifty50/Nifty50';
 import Links from './page/Links/Links';
 import Commodities from './page/Commodities/Commodities';
 import Learn from './page/Learn/Learn';
+import Profile from './page/User/Profile/Profile';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -17,6 +20,8 @@ function App() {
     switch (currentPage) {
       case 'sip-calculator':
         return <SipCalculator />;
+      case 'compound-interest':
+        return <CompoundInterestCalculator />;
       case 'calculators':
         return <Calculators />;
       case 'currency':
@@ -31,6 +36,8 @@ function App() {
         return <Commodities />;
       case 'learn':
         return <Learn />;
+      case 'profile':
+        return <Profile onBack={() => setCurrentPage('home')} />;
       case 'tools':
         return (
           <div className="page-container">
@@ -165,58 +172,7 @@ function App() {
       {renderPage()}
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-              <h3>FinApp</h3>
-              <p>Empowering individuals to achieve financial freedom through smart money management.</p>
-            </div>
-            <div className="footer-section">
-              <h4>Product</h4>
-              <ul>
-                <li><a href="#features">Features</a></li>
-                <li><button 
-                  className="footer-link" 
-                  onClick={() => setCurrentPage('calculators')}
-                >
-                  Calculators
-                </button></li>
-                <li><button 
-                  className="footer-link" 
-                  onClick={() => setCurrentPage('sip-calculator')}
-                >
-                  SIP Calculator
-                </button></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#security">Security</a></li>
-                <li><a href="#api">API</a></li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <h4>Company</h4>
-              <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#careers">Careers</a></li>
-                <li><a href="#press">Press</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <h4>Support</h4>
-              <ul>
-                <li><a href="#help">Help Center</a></li>
-                <li><a href="#docs">Documentation</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#status">Status</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>&copy; 2024 FinApp. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer setCurrentPage={setCurrentPage} />
     </div>
   );
 }

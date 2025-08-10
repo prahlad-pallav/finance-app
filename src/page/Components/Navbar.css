@@ -156,6 +156,12 @@
   color: #00b4d8;
 }
 
+.Navbar__DropdownItem--active {
+  background: #e3f2fd;
+  color: #00b4d8;
+  font-weight: 600;
+}
+
 .Navbar__DropdownItem:active {
   background: #e9ecef;
 }

@@ -1,23 +1,23 @@
-/* SIP Calculator Block */
-.SipCalculator {
+/* Present & Future Value Calculator Block */
+.PresentFutureValueCalculator {
   min-height: 100vh;
   background: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.SipCalculator__Container {
+.PresentFutureValueCalculator__Container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
-.SipCalculator__Header {
+.PresentFutureValueCalculator__Header {
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
 }
 
-.SipCalculator__BackButton {
+.PresentFutureValueCalculator__BackButton {
   position: absolute;
   left: 0;
   top: 50%;
@@ -32,19 +32,19 @@
   transition: all 0.2s ease;
 }
 
-.SipCalculator__BackButton:hover {
+.PresentFutureValueCalculator__BackButton:hover {
   background: #f5f5f5;
   border-color: #999;
 }
 
-.SipCalculator__Title {
+.PresentFutureValueCalculator__Title {
   font-size: 2.5rem;
   font-weight: 700;
   color: #333;
   margin-bottom: 1rem;
 }
 
-.SipCalculator__Subtitle {
+.PresentFutureValueCalculator__Subtitle {
   font-size: 1.1rem;
   color: #666;
   max-width: 600px;
@@ -52,7 +52,7 @@
   line-height: 1.6;
 }
 
-.SipCalculator__Content {
+.PresentFutureValueCalculator__Content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
@@ -60,14 +60,14 @@
 }
 
 /* Input Section Block */
-.SipCalculator__InputSection {
+.PresentFutureValueCalculator__InputSection {
   background: #f8f9fa;
   border-radius: 12px;
   padding: 2rem;
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__SectionTitle {
+.PresentFutureValueCalculator__SectionTitle {
   font-size: 1.5rem;
   font-weight: 600;
   color: #333;
@@ -75,25 +75,26 @@
   text-align: center;
 }
 
-.SipCalculator__InputGrid {
+.PresentFutureValueCalculator__InputGrid {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.SipCalculator__InputGroup {
+.PresentFutureValueCalculator__InputGroup {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.SipCalculator__Label {
+.PresentFutureValueCalculator__Label {
   font-weight: 600;
   color: #333;
   font-size: 0.9rem;
 }
 
-.SipCalculator__Input {
+.PresentFutureValueCalculator__Input,
+.PresentFutureValueCalculator__Select {
   padding: 0.75rem;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
@@ -103,29 +104,23 @@
   color: #333;
 }
 
-.SipCalculator__Input:focus {
+.PresentFutureValueCalculator__Input:focus,
+.PresentFutureValueCalculator__Select:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
-.SipCalculator__Input::placeholder {
+.PresentFutureValueCalculator__Input::placeholder {
   color: #999;
 }
 
-.SipCalculator__AmountPreview {
-  font-size: 0.8rem;
-  color: #007bff;
-  font-weight: 500;
-  margin-top: 0.25rem;
-}
-
 /* Slider Block */
-.SipCalculator__Slider {
+.PresentFutureValueCalculator__Slider {
   margin-top: 0.5rem;
 }
 
-.SipCalculator__RangeInput {
+.PresentFutureValueCalculator__RangeInput {
   width: 100%;
   height: 6px;
   border-radius: 3px;
@@ -135,7 +130,7 @@
   appearance: none;
 }
 
-.SipCalculator__RangeInput::-webkit-slider-thumb {
+.PresentFutureValueCalculator__RangeInput::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
@@ -147,7 +142,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.SipCalculator__RangeInput::-moz-range-thumb {
+.PresentFutureValueCalculator__RangeInput::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -157,7 +152,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.SipCalculator__SliderLabels {
+.PresentFutureValueCalculator__SliderLabels {
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
@@ -166,19 +161,19 @@
 }
 
 /* Results Section Block */
-.SipCalculator__ResultsSection {
+.PresentFutureValueCalculator__ResultsSection {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.SipCalculator__ResultsGrid {
+.PresentFutureValueCalculator__ResultsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
-.SipCalculator__ResultCard {
+.PresentFutureValueCalculator__ResultCard {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -188,55 +183,55 @@
   transition: transform 0.2s ease;
 }
 
-.SipCalculator__ResultCard:hover {
+.PresentFutureValueCalculator__ResultCard:hover {
   transform: translateY(-2px);
 }
 
-.SipCalculator__ResultCard--highlight {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.PresentFutureValueCalculator__ResultCard--highlight {
+  background: linear-gradient(135deg, #6f42c1 0%, #8e44ad 100%);
   color: white;
   border: none;
 }
 
-.SipCalculator__ResultIcon {
+.PresentFutureValueCalculator__ResultIcon {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.SipCalculator__ResultTitle {
+.PresentFutureValueCalculator__ResultTitle {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: inherit;
 }
 
-.SipCalculator__ResultAmount {
+.PresentFutureValueCalculator__ResultAmount {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: inherit;
 }
 
-.SipCalculator__ResultAmount--returns {
-  color: #28a745;
+.PresentFutureValueCalculator__ResultAmount--difference {
+  color: #e74c3c;
 }
 
-.SipCalculator__ResultCard--highlight .SipCalculator__ResultAmount--returns {
-  color: #90EE90;
+.PresentFutureValueCalculator__ResultCard--highlight .PresentFutureValueCalculator__ResultAmount--difference {
+  color: #ff6b6b;
 }
 
-.SipCalculator__ResultDescription {
+.PresentFutureValueCalculator__ResultDescription {
   font-size: 0.8rem;
   color: #666;
   line-height: 1.4;
 }
 
-.SipCalculator__ResultCard--highlight .SipCalculator__ResultDescription {
+.PresentFutureValueCalculator__ResultCard--highlight .PresentFutureValueCalculator__ResultDescription {
   color: rgba(255, 255, 255, 0.8);
 }
 
 /* Chart Section Block */
-.SipCalculator__ChartSection {
+.PresentFutureValueCalculator__ChartSection {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -244,7 +239,7 @@
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__ChartTitle {
+.PresentFutureValueCalculator__ChartTitle {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
@@ -252,13 +247,13 @@
   text-align: center;
 }
 
-.SipCalculator__ChartContainer {
+.PresentFutureValueCalculator__ChartContainer {
   width: 100%;
   height: 400px;
   margin: 0 auto;
 }
 
-.SipCalculator__Tooltip {
+.PresentFutureValueCalculator__Tooltip {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #e9ecef;
   border-radius: 8px;
@@ -267,7 +262,7 @@
   font-size: 0.9rem;
 }
 
-.SipCalculator__TooltipLabel {
+.PresentFutureValueCalculator__TooltipLabel {
   font-weight: 600;
   color: #333;
   margin-bottom: 0.5rem;
@@ -276,7 +271,7 @@
 }
 
 /* Summary Section Block */
-.SipCalculator__SummarySection {
+.PresentFutureValueCalculator__SummarySection {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -284,7 +279,7 @@
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__SummaryTitle {
+.PresentFutureValueCalculator__SummaryTitle {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
@@ -292,13 +287,13 @@
   text-align: center;
 }
 
-.SipCalculator__SummaryGrid {
+.PresentFutureValueCalculator__SummaryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 
-.SipCalculator__SummaryCard {
+.PresentFutureValueCalculator__SummaryCard {
   background: #f8f9fa;
   padding: 1rem;
   border-radius: 8px;
@@ -308,20 +303,20 @@
   gap: 0.5rem;
 }
 
-.SipCalculator__SummaryLabel {
+.PresentFutureValueCalculator__SummaryLabel {
   font-size: 0.8rem;
   color: #666;
   font-weight: 500;
 }
 
-.SipCalculator__SummaryValue {
+.PresentFutureValueCalculator__SummaryValue {
   font-size: 1rem;
   color: #333;
   font-weight: 600;
 }
 
 /* Breakdown Section Block */
-.SipCalculator__BreakdownSection {
+.PresentFutureValueCalculator__BreakdownSection {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -329,7 +324,7 @@
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__BreakdownTitle {
+.PresentFutureValueCalculator__BreakdownTitle {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
@@ -337,13 +332,13 @@
   text-align: center;
 }
 
-.SipCalculator__BreakdownTable {
+.PresentFutureValueCalculator__BreakdownTable {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__TableHeader {
+.PresentFutureValueCalculator__TableHeader {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background: #f8f9fa;
@@ -353,12 +348,12 @@
   font-size: 0.9rem;
 }
 
-.SipCalculator__TableBody {
+.PresentFutureValueCalculator__TableBody {
   max-height: 300px;
   overflow-y: auto;
 }
 
-.SipCalculator__TableRow {
+.PresentFutureValueCalculator__TableRow {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 0.75rem 1rem;
@@ -367,26 +362,26 @@
   transition: background-color 0.2s ease;
 }
 
-.SipCalculator__TableRow:hover {
+.PresentFutureValueCalculator__TableRow:hover {
   background: #f8f9fa;
 }
 
-.SipCalculator__TableRow:last-child {
+.PresentFutureValueCalculator__TableRow:last-child {
   border-bottom: none;
 }
 
-.SipCalculator__TableReturns {
+.PresentFutureValueCalculator__TableFutureValue {
   color: #28a745;
   font-weight: 600;
 }
 
-.SipCalculator__TableTotal {
-  color: #007bff;
+.PresentFutureValueCalculator__TableDiscountFactor {
+  color: #6f42c1;
   font-weight: 600;
 }
 
 /* Tips Section Block */
-.SipCalculator__TipsSection {
+.PresentFutureValueCalculator__TipsSection {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -394,7 +389,7 @@
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__TipsTitle {
+.PresentFutureValueCalculator__TipsTitle {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
@@ -402,32 +397,32 @@
   text-align: center;
 }
 
-.SipCalculator__TipsGrid {
+.PresentFutureValueCalculator__TipsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
-.SipCalculator__TipCard {
+.PresentFutureValueCalculator__TipCard {
   background: #f8f9fa;
   border-radius: 8px;
   padding: 1.5rem;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid #6f42c1;
   transition: transform 0.2s ease;
 }
 
-.SipCalculator__TipCard:hover {
+.PresentFutureValueCalculator__TipCard:hover {
   transform: translateY(-2px);
 }
 
-.SipCalculator__TipTitle {
+.PresentFutureValueCalculator__TipTitle {
   font-size: 1.1rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 0.5rem;
 }
 
-.SipCalculator__TipText {
+.PresentFutureValueCalculator__TipText {
   font-size: 0.9rem;
   color: #666;
   line-height: 1.5;
@@ -435,112 +430,112 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .SipCalculator__Content {
+  .PresentFutureValueCalculator__Content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   
-  .SipCalculator__ResultsGrid {
+  .PresentFutureValueCalculator__ResultsGrid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
   
-  .SipCalculator__ChartContainer {
+  .PresentFutureValueCalculator__ChartContainer {
     height: 350px;
   }
 }
 
 @media (max-width: 768px) {
-  .SipCalculator__Container {
+  .PresentFutureValueCalculator__Container {
     padding: 1rem;
   }
   
-  .SipCalculator__Title {
+  .PresentFutureValueCalculator__Title {
     font-size: 2rem;
   }
   
-  .SipCalculator__Subtitle {
+  .PresentFutureValueCalculator__Subtitle {
     font-size: 1rem;
   }
   
-  .SipCalculator__InputSection {
+  .PresentFutureValueCalculator__InputSection {
     padding: 1.5rem;
   }
   
-  .SipCalculator__ResultsGrid {
+  .PresentFutureValueCalculator__ResultsGrid {
     grid-template-columns: 1fr;
   }
   
-  .SipCalculator__TipsGrid {
+  .PresentFutureValueCalculator__TipsGrid {
     grid-template-columns: 1fr;
   }
   
-  .SipCalculator__TableHeader,
-  .SipCalculator__TableRow {
+  .PresentFutureValueCalculator__TableHeader,
+  .PresentFutureValueCalculator__TableRow {
     grid-template-columns: 1fr 1fr;
     font-size: 0.8rem;
   }
   
-  .SipCalculator__TableHeader span:nth-child(3),
-  .SipCalculator__TableHeader span:nth-child(4),
-  .SipCalculator__TableRow span:nth-child(3),
-  .SipCalculator__TableRow span:nth-child(4) {
+  .PresentFutureValueCalculator__TableHeader span:nth-child(3),
+  .PresentFutureValueCalculator__TableHeader span:nth-child(4),
+  .PresentFutureValueCalculator__TableRow span:nth-child(3),
+  .PresentFutureValueCalculator__TableRow span:nth-child(4) {
     display: none;
   }
   
-  .SipCalculator__BackButton {
+  .PresentFutureValueCalculator__BackButton {
     position: static;
     transform: none;
     margin-bottom: 1rem;
     display: inline-block;
   }
   
-  .SipCalculator__ChartContainer {
+  .PresentFutureValueCalculator__ChartContainer {
     height: 300px;
   }
 }
 
 @media (max-width: 480px) {
-  .SipCalculator__Container {
+  .PresentFutureValueCalculator__Container {
     padding: 0.5rem;
   }
   
-  .SipCalculator__Title {
+  .PresentFutureValueCalculator__Title {
     font-size: 1.8rem;
   }
   
-  .SipCalculator__InputSection {
+  .PresentFutureValueCalculator__InputSection {
     padding: 1rem;
   }
   
-  .SipCalculator__ResultCard {
+  .PresentFutureValueCalculator__ResultCard {
     padding: 1rem;
   }
   
-  .SipCalculator__ResultAmount {
+  .PresentFutureValueCalculator__ResultAmount {
     font-size: 1.5rem;
   }
   
-  .SipCalculator__TipCard {
+  .PresentFutureValueCalculator__TipCard {
     padding: 1rem;
   }
   
-  .SipCalculator__SummaryCard {
+  .PresentFutureValueCalculator__SummaryCard {
     padding: 0.75rem;
   }
   
-  .SipCalculator__ChartContainer {
+  .PresentFutureValueCalculator__ChartContainer {
     height: 250px;
   }
 }
 
 /* Animation Classes */
-.SipCalculator__ResultCard {
+.PresentFutureValueCalculator__ResultCard {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-.SipCalculator__ResultCard:nth-child(1) { animation-delay: 0.1s; }
-.SipCalculator__ResultCard:nth-child(2) { animation-delay: 0.2s; }
-.SipCalculator__ResultCard:nth-child(3) { animation-delay: 0.3s; }
+.PresentFutureValueCalculator__ResultCard:nth-child(1) { animation-delay: 0.1s; }
+.PresentFutureValueCalculator__ResultCard:nth-child(2) { animation-delay: 0.2s; }
+.PresentFutureValueCalculator__ResultCard:nth-child(3) { animation-delay: 0.3s; }
 
 @keyframes fadeInUp {
   from {
@@ -554,59 +549,55 @@
 }
 
 /* Focus states for accessibility */
-.SipCalculator__Input:focus,
-.SipCalculator__RangeInput:focus {
+.PresentFutureValueCalculator__Input:focus,
+.PresentFutureValueCalculator__Select:focus,
+.PresentFutureValueCalculator__RangeInput:focus {
   outline: 2px solid #007bff;
   outline-offset: 2px;
 }
 
 /* Custom scrollbar for table */
-.SipCalculator__TableBody::-webkit-scrollbar {
+.PresentFutureValueCalculator__TableBody::-webkit-scrollbar {
   width: 6px;
 }
 
-.SipCalculator__TableBody::-webkit-scrollbar-track {
+.PresentFutureValueCalculator__TableBody::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 3px;
 }
 
-.SipCalculator__TableBody::-webkit-scrollbar-thumb {
+.PresentFutureValueCalculator__TableBody::-webkit-scrollbar-thumb {
   background: #c1c1c1;
   border-radius: 3px;
 }
 
-.SipCalculator__TableBody::-webkit-scrollbar-thumb:hover {
+.PresentFutureValueCalculator__TableBody::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
 
-/* Amount preview specific styles */
-.SipCalculator__AmountPreview {
-  transition: all 0.2s ease;
-}
-
-.SipCalculator__AmountPreview:hover {
-  color: #0056b3;
-  font-weight: 600;
-}
-
 /* Chart specific styles */
-.SipCalculator__ChartSection .recharts-cartesian-grid-horizontal line,
-.SipCalculator__ChartSection .recharts-cartesian-grid-vertical line {
+.PresentFutureValueCalculator__ChartSection .recharts-cartesian-grid-horizontal line,
+.PresentFutureValueCalculator__ChartSection .recharts-cartesian-grid-vertical line {
   stroke: #e9ecef;
   stroke-dasharray: 3 3;
 }
 
-.SipCalculator__ChartSection .recharts-text {
+.PresentFutureValueCalculator__ChartSection .recharts-text {
   font-size: 0.8rem;
   fill: #666;
 }
 
-.SipCalculator__ChartSection .recharts-legend-item-text {
+.PresentFutureValueCalculator__ChartSection .recharts-legend-item-text {
   font-size: 0.9rem;
   color: #333;
 }
 
-.SipCalculator__ChartSection .recharts-tooltip-wrapper {
+.PresentFutureValueCalculator__ChartSection .recharts-tooltip-wrapper {
   outline: none;
 }
 
+/* Select specific styles */
+.PresentFutureValueCalculator__Select:focus {
+  border-color: #6f42c1;
+  box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.1);
+}

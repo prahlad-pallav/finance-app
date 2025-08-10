@@ -1,0 +1,1198 @@
+/* Profile Block */
+.Profile {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.Profile__Container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Header Block */
+.Profile__Header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.Profile__BackButton {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.Profile__BackButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.Profile__HeaderContent {
+  text-align: center;
+  flex: 1;
+}
+
+.Profile__Title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Profile__Subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+  font-weight: 400;
+}
+
+.Profile__HeaderActions {
+  display: flex;
+  gap: 10px;
+}
+
+.Profile__EditBtn,
+.Profile__SaveBtn,
+.Profile__CancelBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.Profile__EditBtn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.Profile__EditBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.Profile__SaveBtn {
+  background: #4caf50;
+  color: white;
+}
+
+.Profile__SaveBtn:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+
+.Profile__SaveBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.Profile__CancelBtn {
+  background: #f44336;
+  color: white;
+}
+
+.Profile__CancelBtn:hover:not(:disabled) {
+  background: #da190b;
+  transform: translateY(-2px);
+}
+
+.Profile__CancelBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Profile Info Block */
+.Profile__Info {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f8f9fa;
+}
+
+.Profile__AvatarLarge {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Profile__AvatarLarge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Profile__AvatarLargePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.Profile__UserInfo {
+  flex: 1;
+}
+
+.Profile__UserName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.Profile__UserEmail {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 5px 0;
+}
+
+.Profile__UserLocation {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0 0 5px 0;
+}
+
+.Profile__UserJoinDate {
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0;
+}
+
+/* Tabs Block */
+.Profile__Tabs {
+  display: flex;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.Profile__Tab {
+  background: none;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 3px solid transparent;
+}
+
+.Profile__Tab:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.Profile__Tab--active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.Profile__TabIcon {
+  font-size: 16px;
+}
+
+.Profile__TabLabel {
+  font-size: 14px;
+}
+
+/* Content Block */
+.Profile__Content {
+  padding: 30px;
+}
+
+/* Overview Block */
+.Profile__StatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.Profile__StatCard {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.Profile__StatCard:hover {
+  transform: translateY(-2px);
+}
+
+.Profile__StatIcon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.Profile__StatContent h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.Profile__StatContent p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 5px 0;
+}
+
+.Profile__StatChange {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.Profile__StatChange.positive {
+  background: #e8f5e8;
+  color: #4caf50;
+}
+
+.Profile__StatChange.negative {
+  background: #ffeaea;
+  color: #f44336;
+}
+
+.Profile__StatSubtext {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* Portfolio Section */
+.Profile__PortfolioSection {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  margin-bottom: 30px;
+}
+
+.Profile__PortfolioSection h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.Profile__PortfolioChart {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.Profile__PortfolioAsset {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.Profile__PortfolioBar {
+  width: 200px;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.Profile__PortfolioBarFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.Profile__PortfolioAssetInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.Profile__PortfolioAssetName {
+  font-weight: 600;
+  color: #333;
+  min-width: 80px;
+}
+
+.Profile__PortfolioAssetValue {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.Profile__PortfolioAssetPercentage {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Recent Activity */
+.Profile__RecentActivity {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.Profile__RecentActivity h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.Profile__ActivityList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.Profile__ActivityItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.Profile__ActivityItem:hover {
+  background: #e9ecef;
+}
+
+.Profile__ActivityIcon {
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.Profile__ActivityContent {
+  flex: 1;
+}
+
+.Profile__ActivityContent p {
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.Profile__ActivityContent span {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Personal Info Block */
+.Profile__PersonalInfo {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+}
+
+.Profile__AvatarSection {
+  text-align: center;
+}
+
+.Profile__Avatar {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.Profile__Avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Profile__AvatarPlaceholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Profile__AvatarUpload {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.Profile__AvatarUpload:hover {
+  background: #5a6fd8;
+  transform: scale(1.1);
+}
+
+.Profile__FormGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.Profile__FormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Profile__FormGroup--full {
+  grid-column: 1 / -1;
+}
+
+.Profile__FormGroup label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.Profile__FormGroup input,
+.Profile__FormGroup select,
+.Profile__FormGroup textarea {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.Profile__FormGroup input:focus,
+.Profile__FormGroup select:focus,
+.Profile__FormGroup textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.Profile__FormGroup input:disabled,
+.Profile__FormGroup select:disabled,
+.Profile__FormGroup textarea:disabled {
+  background: #f8f9fa;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.Profile__FormGroup textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Financial Block */
+.Profile__FinancialOverview {
+  margin-bottom: 30px;
+}
+
+.Profile__FinancialCard {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.Profile__FinancialCard h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.Profile__FinancialStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.Profile__FinancialStat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Profile__FinancialLabel {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.Profile__FinancialValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.Profile__FinancialValue.positive {
+  color: #4caf50;
+}
+
+.Profile__FinancialValue.negative {
+  color: #f44336;
+}
+
+.Profile__AssetAllocation {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.Profile__AssetAllocation h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.Profile__AssetGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.Profile__AssetCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.Profile__AssetCard:hover {
+  transform: translateY(-2px);
+}
+
+.Profile__AssetHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.Profile__AssetIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.Profile__AssetInfo h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.Profile__AssetInfo p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.Profile__AssetValue {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #667eea;
+  text-align: center;
+}
+
+/* Goals Block */
+.Profile__Goals {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Profile__GoalsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Profile__GoalsHeader h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.Profile__AddGoalBtn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.Profile__AddGoalBtn:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+.Profile__GoalsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.Profile__GoalCard {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.Profile__GoalCard:hover {
+  transform: translateY(-2px);
+}
+
+.Profile__GoalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.Profile__GoalHeader h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.Profile__GoalStatus {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+}
+
+.Profile__GoalProgress {
+  margin-bottom: 15px;
+}
+
+.Profile__GoalProgressBar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.Profile__GoalProgressFill {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.Profile__GoalProgressText {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+.Profile__GoalDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Profile__GoalAmount {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.Profile__GoalCurrent {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.Profile__GoalTarget {
+  font-size: 1rem;
+  color: #666;
+}
+
+.Profile__GoalDeadline {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Preferences Block */
+.Profile__Preferences {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.Profile__PreferenceSection {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.Profile__PreferenceSection h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.Profile__PreferenceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.Profile__PreferenceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Profile__PreferenceItem label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.Profile__PreferenceItem select {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.Profile__PreferenceItem select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.Profile__PreferenceItem select:disabled {
+  background: #f8f9fa;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Notification Settings */
+.Profile__NotificationSettings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Profile__NotificationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.Profile__NotificationItem:hover {
+  background: #e9ecef;
+}
+
+.Profile__NotificationInfo {
+  flex: 1;
+}
+
+.Profile__NotificationInfo label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.Profile__NotificationInfo p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Toggle Switch */
+.Profile__Toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.Profile__Toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.Profile__ToggleSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.Profile__ToggleSlider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.Profile__Toggle input:checked + .Profile__ToggleSlider {
+  background-color: #667eea;
+}
+
+.Profile__Toggle input:checked + .Profile__ToggleSlider:before {
+  transform: translateX(26px);
+}
+
+.Profile__Toggle input:disabled + .Profile__ToggleSlider {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Privacy Settings */
+.Profile__PrivacySettings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Profile__PrivacyItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.Profile__PrivacyItem:hover {
+  background: #e9ecef;
+}
+
+.Profile__PrivacyInfo {
+  flex: 1;
+}
+
+.Profile__PrivacyInfo label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.Profile__PrivacyInfo p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.Profile__PrivacyItem select {
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.Profile__PrivacyItem select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.Profile__PrivacyItem select:disabled {
+  background: #f8f9fa;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Security Block */
+.Profile__Security {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.Profile__SecuritySection {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.Profile__SecuritySection h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.Profile__SecurityItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.Profile__SecurityItem:hover {
+  background: #e9ecef;
+}
+
+.Profile__SecurityItem:last-child {
+  margin-bottom: 0;
+}
+
+.Profile__SecurityInfo {
+  flex: 1;
+}
+
+.Profile__SecurityInfo h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.Profile__SecurityInfo p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.Profile__SecurityBtn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.Profile__SecurityBtn:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+.Profile__SecurityBtn--danger {
+  background: #f44336;
+}
+
+.Profile__SecurityBtn--danger:hover {
+  background: #da190b;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .Profile__PersonalInfo {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .Profile__AvatarSection {
+    text-align: center;
+  }
+  
+  .Profile__FormGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .Profile__StatsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .Profile__GoalsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .Profile__AssetGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .Profile {
+    padding: 10px;
+  }
+  
+  .Profile__Container {
+    border-radius: 15px;
+  }
+  
+  .Profile__Header {
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .Profile__BackButton {
+    position: static;
+    align-self: flex-start;
+  }
+  
+  .Profile__Title {
+    font-size: 2rem;
+  }
+  
+  .Profile__Subtitle {
+    font-size: 1rem;
+  }
+  
+  .Profile__Info {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .Profile__Content {
+    padding: 20px;
+  }
+  
+  .Profile__Tabs {
+    flex-wrap: wrap;
+  }
+  
+  .Profile__Tab {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+  
+  .Profile__StatsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .Profile__PortfolioBar {
+    width: 150px;
+  }
+  
+  .Profile__PortfolioAssetInfo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .Profile__PortfolioAssetInfo p {
+    margin: 0;
+  }
+}

@@ -9,15 +9,15 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   const navItems = [
     { name: 'Home', id: 'home' },
     { name: 'Calculators', id: 'calculators' },
-    { name: 'Currency', id: 'currency' },
     { name: 'Cryptocurrency', id: 'cryptocurrency' },
     { name: 'Nifty50', id: 'nifty50' },
-    { name: 'Commodities', id: 'commodities' },
     { name: 'Learn', id: 'learn' },
     { name: 'Tools', id: 'tools' }
   ];
 
   const dropdownItems = [
+    { name: 'Currency', id: 'currency' },
+    { name: 'Commodities', id: 'commodities' },
     { name: 'Links', id: 'links' }
   ];
 
@@ -37,9 +37,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
   const handleDropdownItemClick = (itemId) => {
     // Handle dropdown item clicks here
-    if (itemId === 'links') {
-      setCurrentPage('links');
-    }
+    setCurrentPage(itemId);
     setIsDropdownOpen(false);
   };
 
@@ -91,7 +89,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
                 {dropdownItems.map((item) => (
                   <button
                     key={item.id}
-                    className="Navbar__DropdownItem"
+                    className={`Navbar__DropdownItem ${currentPage === item.id ? 'Navbar__DropdownItem--active' : ''}`}
                     onClick={() => handleDropdownItemClick(item.id)}
                   >
                     {item.name}
@@ -113,7 +111,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           </button>
 
           {/* User Profile */}
-          <div className="Navbar__UserProfile">
+          <div className="Navbar__UserProfile" onClick={() => handleNavClick('profile')}>
             <div className="Navbar__ProfileAvatar">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="5" fill="#FFB6C1"/>
@@ -150,7 +148,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           {dropdownItems.map((item) => (
             <button
               key={item.id}
-              className="Navbar__MobileNavLink"
+              className={`Navbar__MobileNavLink ${currentPage === item.id ? 'Navbar__MobileNavLink--active' : ''}`}
               onClick={() => handleDropdownItemClick(item.id)}
             >
               {item.name}

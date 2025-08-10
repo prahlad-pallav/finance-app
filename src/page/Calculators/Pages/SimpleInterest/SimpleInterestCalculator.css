@@ -1,23 +1,23 @@
-/* SIP Calculator Block */
-.SipCalculator {
+/* Simple Interest Calculator Block */
+.SimpleInterestCalculator {
   min-height: 100vh;
   background: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.SipCalculator__Container {
+.SimpleInterestCalculator__Container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
-.SipCalculator__Header {
+.SimpleInterestCalculator__Header {
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
 }
 
-.SipCalculator__BackButton {
+.SimpleInterestCalculator__BackButton {
   position: absolute;
   left: 0;
   top: 50%;
@@ -32,19 +32,19 @@
   transition: all 0.2s ease;
 }
 
-.SipCalculator__BackButton:hover {
+.SimpleInterestCalculator__BackButton:hover {
   background: #f5f5f5;
   border-color: #999;
 }
 
-.SipCalculator__Title {
+.SimpleInterestCalculator__Title {
   font-size: 2.5rem;
   font-weight: 700;
   color: #333;
   margin-bottom: 1rem;
 }
 
-.SipCalculator__Subtitle {
+.SimpleInterestCalculator__Subtitle {
   font-size: 1.1rem;
   color: #666;
   max-width: 600px;
@@ -52,7 +52,7 @@
   line-height: 1.6;
 }
 
-.SipCalculator__Content {
+.SimpleInterestCalculator__Content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
@@ -60,14 +60,14 @@
 }
 
 /* Input Section Block */
-.SipCalculator__InputSection {
+.SimpleInterestCalculator__InputSection {
   background: #f8f9fa;
   border-radius: 12px;
   padding: 2rem;
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__SectionTitle {
+.SimpleInterestCalculator__SectionTitle {
   font-size: 1.5rem;
   font-weight: 600;
   color: #333;
@@ -75,25 +75,25 @@
   text-align: center;
 }
 
-.SipCalculator__InputGrid {
+.SimpleInterestCalculator__InputGrid {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.SipCalculator__InputGroup {
+.SimpleInterestCalculator__InputGroup {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.SipCalculator__Label {
+.SimpleInterestCalculator__Label {
   font-weight: 600;
   color: #333;
   font-size: 0.9rem;
 }
 
-.SipCalculator__Input {
+.SimpleInterestCalculator__Input {
   padding: 0.75rem;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
@@ -103,29 +103,22 @@
   color: #333;
 }
 
-.SipCalculator__Input:focus {
+.SimpleInterestCalculator__Input:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
-.SipCalculator__Input::placeholder {
+.SimpleInterestCalculator__Input::placeholder {
   color: #999;
 }
 
-.SipCalculator__AmountPreview {
-  font-size: 0.8rem;
-  color: #007bff;
-  font-weight: 500;
-  margin-top: 0.25rem;
-}
-
 /* Slider Block */
-.SipCalculator__Slider {
+.SimpleInterestCalculator__Slider {
   margin-top: 0.5rem;
 }
 
-.SipCalculator__RangeInput {
+.SimpleInterestCalculator__RangeInput {
   width: 100%;
   height: 6px;
   border-radius: 3px;
@@ -135,7 +128,7 @@
   appearance: none;
 }
 
-.SipCalculator__RangeInput::-webkit-slider-thumb {
+.SimpleInterestCalculator__RangeInput::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
@@ -147,7 +140,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.SipCalculator__RangeInput::-moz-range-thumb {
+.SimpleInterestCalculator__RangeInput::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -157,7 +150,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.SipCalculator__SliderLabels {
+.SimpleInterestCalculator__SliderLabels {
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
@@ -166,19 +159,19 @@
 }
 
 /* Results Section Block */
-.SipCalculator__ResultsSection {
+.SimpleInterestCalculator__ResultsSection {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.SipCalculator__ResultsGrid {
+.SimpleInterestCalculator__ResultsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
-.SipCalculator__ResultCard {
+.SimpleInterestCalculator__ResultCard {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -188,55 +181,55 @@
   transition: transform 0.2s ease;
 }
 
-.SipCalculator__ResultCard:hover {
+.SimpleInterestCalculator__ResultCard:hover {
   transform: translateY(-2px);
 }
 
-.SipCalculator__ResultCard--highlight {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.SimpleInterestCalculator__ResultCard--highlight {
+  background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
   color: white;
   border: none;
 }
 
-.SipCalculator__ResultIcon {
+.SimpleInterestCalculator__ResultIcon {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.SipCalculator__ResultTitle {
+.SimpleInterestCalculator__ResultTitle {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: inherit;
 }
 
-.SipCalculator__ResultAmount {
+.SimpleInterestCalculator__ResultAmount {
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: inherit;
 }
 
-.SipCalculator__ResultAmount--returns {
+.SimpleInterestCalculator__ResultAmount--interest {
   color: #28a745;
 }
 
-.SipCalculator__ResultCard--highlight .SipCalculator__ResultAmount--returns {
+.SimpleInterestCalculator__ResultCard--highlight .SimpleInterestCalculator__ResultAmount--interest {
   color: #90EE90;
 }
 
-.SipCalculator__ResultDescription {
+.SimpleInterestCalculator__ResultDescription {
   font-size: 0.8rem;
   color: #666;
   line-height: 1.4;
 }
 
-.SipCalculator__ResultCard--highlight .SipCalculator__ResultDescription {
+.SimpleInterestCalculator__ResultCard--highlight .SimpleInterestCalculator__ResultDescription {
   color: rgba(255, 255, 255, 0.8);
 }
 
 /* Chart Section Block */
-.SipCalculator__ChartSection {
+.SimpleInterestCalculator__ChartSection {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -244,7 +237,7 @@
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__ChartTitle {
+.SimpleInterestCalculator__ChartTitle {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
@@ -252,13 +245,13 @@
   text-align: center;
 }
 
-.SipCalculator__ChartContainer {
+.SimpleInterestCalculator__ChartContainer {
   width: 100%;
   height: 400px;
   margin: 0 auto;
 }
 
-.SipCalculator__Tooltip {
+.SimpleInterestCalculator__Tooltip {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #e9ecef;
   border-radius: 8px;
@@ -267,7 +260,7 @@
   font-size: 0.9rem;
 }
 
-.SipCalculator__TooltipLabel {
+.SimpleInterestCalculator__TooltipLabel {
   font-weight: 600;
   color: #333;
   margin-bottom: 0.5rem;
@@ -276,7 +269,7 @@
 }
 
 /* Summary Section Block */
-.SipCalculator__SummarySection {
+.SimpleInterestCalculator__SummarySection {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -284,7 +277,7 @@
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__SummaryTitle {
+.SimpleInterestCalculator__SummaryTitle {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
@@ -292,13 +285,13 @@
   text-align: center;
 }
 
-.SipCalculator__SummaryGrid {
+.SimpleInterestCalculator__SummaryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 
-.SipCalculator__SummaryCard {
+.SimpleInterestCalculator__SummaryCard {
   background: #f8f9fa;
   padding: 1rem;
   border-radius: 8px;
@@ -308,20 +301,20 @@
   gap: 0.5rem;
 }
 
-.SipCalculator__SummaryLabel {
+.SimpleInterestCalculator__SummaryLabel {
   font-size: 0.8rem;
   color: #666;
   font-weight: 500;
 }
 
-.SipCalculator__SummaryValue {
+.SimpleInterestCalculator__SummaryValue {
   font-size: 1rem;
   color: #333;
   font-weight: 600;
 }
 
 /* Breakdown Section Block */
-.SipCalculator__BreakdownSection {
+.SimpleInterestCalculator__BreakdownSection {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -329,7 +322,7 @@
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__BreakdownTitle {
+.SimpleInterestCalculator__BreakdownTitle {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
@@ -337,13 +330,13 @@
   text-align: center;
 }
 
-.SipCalculator__BreakdownTable {
+.SimpleInterestCalculator__BreakdownTable {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__TableHeader {
+.SimpleInterestCalculator__TableHeader {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background: #f8f9fa;
@@ -353,12 +346,12 @@
   font-size: 0.9rem;
 }
 
-.SipCalculator__TableBody {
+.SimpleInterestCalculator__TableBody {
   max-height: 300px;
   overflow-y: auto;
 }
 
-.SipCalculator__TableRow {
+.SimpleInterestCalculator__TableRow {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 0.75rem 1rem;
@@ -367,26 +360,26 @@
   transition: background-color 0.2s ease;
 }
 
-.SipCalculator__TableRow:hover {
+.SimpleInterestCalculator__TableRow:hover {
   background: #f8f9fa;
 }
 
-.SipCalculator__TableRow:last-child {
+.SimpleInterestCalculator__TableRow:last-child {
   border-bottom: none;
 }
 
-.SipCalculator__TableReturns {
+.SimpleInterestCalculator__TableInterest {
   color: #28a745;
   font-weight: 600;
 }
 
-.SipCalculator__TableTotal {
+.SimpleInterestCalculator__TableTotal {
   color: #007bff;
   font-weight: 600;
 }
 
 /* Tips Section Block */
-.SipCalculator__TipsSection {
+.SimpleInterestCalculator__TipsSection {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -394,7 +387,7 @@
   border: 1px solid #e9ecef;
 }
 
-.SipCalculator__TipsTitle {
+.SimpleInterestCalculator__TipsTitle {
   font-size: 1.3rem;
   font-weight: 600;
   color: #333;
@@ -402,32 +395,32 @@
   text-align: center;
 }
 
-.SipCalculator__TipsGrid {
+.SimpleInterestCalculator__TipsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
-.SipCalculator__TipCard {
+.SimpleInterestCalculator__TipCard {
   background: #f8f9fa;
   border-radius: 8px;
   padding: 1.5rem;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid #ffc107;
   transition: transform 0.2s ease;
 }
 
-.SipCalculator__TipCard:hover {
+.SimpleInterestCalculator__TipCard:hover {
   transform: translateY(-2px);
 }
 
-.SipCalculator__TipTitle {
+.SimpleInterestCalculator__TipTitle {
   font-size: 1.1rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 0.5rem;
 }
 
-.SipCalculator__TipText {
+.SimpleInterestCalculator__TipText {
   font-size: 0.9rem;
   color: #666;
   line-height: 1.5;
@@ -435,112 +428,112 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .SipCalculator__Content {
+  .SimpleInterestCalculator__Content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   
-  .SipCalculator__ResultsGrid {
+  .SimpleInterestCalculator__ResultsGrid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
   
-  .SipCalculator__ChartContainer {
+  .SimpleInterestCalculator__ChartContainer {
     height: 350px;
   }
 }
 
 @media (max-width: 768px) {
-  .SipCalculator__Container {
+  .SimpleInterestCalculator__Container {
     padding: 1rem;
   }
   
-  .SipCalculator__Title {
+  .SimpleInterestCalculator__Title {
     font-size: 2rem;
   }
   
-  .SipCalculator__Subtitle {
+  .SimpleInterestCalculator__Subtitle {
     font-size: 1rem;
   }
   
-  .SipCalculator__InputSection {
+  .SimpleInterestCalculator__InputSection {
     padding: 1.5rem;
   }
   
-  .SipCalculator__ResultsGrid {
+  .SimpleInterestCalculator__ResultsGrid {
     grid-template-columns: 1fr;
   }
   
-  .SipCalculator__TipsGrid {
+  .SimpleInterestCalculator__TipsGrid {
     grid-template-columns: 1fr;
   }
   
-  .SipCalculator__TableHeader,
-  .SipCalculator__TableRow {
+  .SimpleInterestCalculator__TableHeader,
+  .SimpleInterestCalculator__TableRow {
     grid-template-columns: 1fr 1fr;
     font-size: 0.8rem;
   }
   
-  .SipCalculator__TableHeader span:nth-child(3),
-  .SipCalculator__TableHeader span:nth-child(4),
-  .SipCalculator__TableRow span:nth-child(3),
-  .SipCalculator__TableRow span:nth-child(4) {
+  .SimpleInterestCalculator__TableHeader span:nth-child(3),
+  .SimpleInterestCalculator__TableHeader span:nth-child(4),
+  .SimpleInterestCalculator__TableRow span:nth-child(3),
+  .SimpleInterestCalculator__TableRow span:nth-child(4) {
     display: none;
   }
   
-  .SipCalculator__BackButton {
+  .SimpleInterestCalculator__BackButton {
     position: static;
     transform: none;
     margin-bottom: 1rem;
     display: inline-block;
   }
   
-  .SipCalculator__ChartContainer {
+  .SimpleInterestCalculator__ChartContainer {
     height: 300px;
   }
 }
 
 @media (max-width: 480px) {
-  .SipCalculator__Container {
+  .SimpleInterestCalculator__Container {
     padding: 0.5rem;
   }
   
-  .SipCalculator__Title {
+  .SimpleInterestCalculator__Title {
     font-size: 1.8rem;
   }
   
-  .SipCalculator__InputSection {
+  .SimpleInterestCalculator__InputSection {
     padding: 1rem;
   }
   
-  .SipCalculator__ResultCard {
+  .SimpleInterestCalculator__ResultCard {
     padding: 1rem;
   }
   
-  .SipCalculator__ResultAmount {
+  .SimpleInterestCalculator__ResultAmount {
     font-size: 1.5rem;
   }
   
-  .SipCalculator__TipCard {
+  .SimpleInterestCalculator__TipCard {
     padding: 1rem;
   }
   
-  .SipCalculator__SummaryCard {
+  .SimpleInterestCalculator__SummaryCard {
     padding: 0.75rem;
   }
   
-  .SipCalculator__ChartContainer {
+  .SimpleInterestCalculator__ChartContainer {
     height: 250px;
   }
 }
 
 /* Animation Classes */
-.SipCalculator__ResultCard {
+.SimpleInterestCalculator__ResultCard {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-.SipCalculator__ResultCard:nth-child(1) { animation-delay: 0.1s; }
-.SipCalculator__ResultCard:nth-child(2) { animation-delay: 0.2s; }
-.SipCalculator__ResultCard:nth-child(3) { animation-delay: 0.3s; }
+.SimpleInterestCalculator__ResultCard:nth-child(1) { animation-delay: 0.1s; }
+.SimpleInterestCalculator__ResultCard:nth-child(2) { animation-delay: 0.2s; }
+.SimpleInterestCalculator__ResultCard:nth-child(3) { animation-delay: 0.3s; }
 
 @keyframes fadeInUp {
   from {
@@ -554,59 +547,48 @@
 }
 
 /* Focus states for accessibility */
-.SipCalculator__Input:focus,
-.SipCalculator__RangeInput:focus {
+.SimpleInterestCalculator__Input:focus,
+.SimpleInterestCalculator__RangeInput:focus {
   outline: 2px solid #007bff;
   outline-offset: 2px;
 }
 
 /* Custom scrollbar for table */
-.SipCalculator__TableBody::-webkit-scrollbar {
+.SimpleInterestCalculator__TableBody::-webkit-scrollbar {
   width: 6px;
 }
 
-.SipCalculator__TableBody::-webkit-scrollbar-track {
+.SimpleInterestCalculator__TableBody::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 3px;
 }
 
-.SipCalculator__TableBody::-webkit-scrollbar-thumb {
+.SimpleInterestCalculator__TableBody::-webkit-scrollbar-thumb {
   background: #c1c1c1;
   border-radius: 3px;
 }
 
-.SipCalculator__TableBody::-webkit-scrollbar-thumb:hover {
+.SimpleInterestCalculator__TableBody::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
 
-/* Amount preview specific styles */
-.SipCalculator__AmountPreview {
-  transition: all 0.2s ease;
-}
-
-.SipCalculator__AmountPreview:hover {
-  color: #0056b3;
-  font-weight: 600;
-}
-
 /* Chart specific styles */
-.SipCalculator__ChartSection .recharts-cartesian-grid-horizontal line,
-.SipCalculator__ChartSection .recharts-cartesian-grid-vertical line {
+.SimpleInterestCalculator__ChartSection .recharts-cartesian-grid-horizontal line,
+.SimpleInterestCalculator__ChartSection .recharts-cartesian-grid-vertical line {
   stroke: #e9ecef;
   stroke-dasharray: 3 3;
 }
 
-.SipCalculator__ChartSection .recharts-text {
+.SimpleInterestCalculator__ChartSection .recharts-text {
   font-size: 0.8rem;
   fill: #666;
 }
 
-.SipCalculator__ChartSection .recharts-legend-item-text {
+.SimpleInterestCalculator__ChartSection .recharts-legend-item-text {
   font-size: 0.9rem;
   color: #333;
 }
 
-.SipCalculator__ChartSection .recharts-tooltip-wrapper {
+.SimpleInterestCalculator__ChartSection .recharts-tooltip-wrapper {
   outline: none;
 }
-
