@@ -1,30 +1,44 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import Logo from '../../Assests/Logo.png';
 
-const Navbar = ({ currentPage, setCurrentPage }) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isIndicesDropdownOpen, setIsIndicesDropdownOpen] = useState(false);
+  
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'Calculators', id: 'calculators' },
-    { name: 'Cryptocurrency', id: 'cryptocurrency' },
-    { name: 'Nifty50', id: 'nifty50' },
-    { name: 'Learn', id: 'learn' },
-    { name: 'Tools', id: 'tools' }
+    { name: 'Home', path: '/' },
+    { name: 'Calculators', path: '/calculators' },
+    { name: 'Cryptocurrency', path: '/cryptocurrency' },
+    { name: 'Nifty50', path: '/indices/nifty50' },
+    { name: 'Learn', path: '/learn' },
+    { name: 'Tools', path: '/tools' }
+  ];
+
+  const indicesItems = [
+    { name: 'Nifty 50', path: '/indices/nifty50' },
+    { name: 'Sensex', path: '/indices/sensex' },
+    { name: 'Bank Nifty', path: '/indices/banknifty' },
+    { name: 'Nifty IT', path: '/indices/niftyit' },
+    { name: 'Nifty Pharma', path: '/indices/niftypharma' }
   ];
 
   const dropdownItems = [
-    { name: 'Currency', id: 'currency' },
-    { name: 'Commodities', id: 'commodities' },
-    { name: 'Links', id: 'links' }
+    { name: 'Currency', path: '/currency' },
+    { name: 'Commodities', path: '/commodities' },
+    { name: 'Links', path: '/links' }
   ];
 
-  const handleNavClick = (pageId) => {
-    setCurrentPage(pageId);
+  const handleNavClick = (path) => {
+    navigate(path);
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
+    setIsIndicesDropdownOpen(false);
   };
 
   const toggleMenu = () => {
@@ -33,36 +47,75 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    setIsIndicesDropdownOpen(false);
   };
 
-  const handleDropdownItemClick = (itemId) => {
-    // Handle dropdown item clicks here
-    setCurrentPage(itemId);
+  const toggleIndicesDropdown = () => {
+    setIsIndicesDropdownOpen(!isIndicesDropdownOpen);
     setIsDropdownOpen(false);
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
   };
 
   return (
     <nav className="Navbar">
       <div className="Navbar__Container">
         {/* Logo Section */}
-        <div className="Navbar__Logo" onClick={() => handleNavClick('home')}>
+        <div className="Navbar__Logo" onClick={() => handleNavClick('/')}>
           <div className="Navbar__LogoIcon">
-            <img src={Logo} alt="FinApp Logo" className="Navbar__LogoImage" />
+            <img src={Logo} alt="GainGuru Logo" className="Navbar__LogoImage" />
           </div>
-          <span className="Navbar__LogoText">FinApp</span>
+          <span className="Navbar__LogoText">GainGuru</span>
         </div>
 
         {/* Desktop Navigation */}
         <div className="Navbar__Nav">
           {navItems.map((item) => (
             <button
-              key={item.id}
-              className={`Navbar__NavLink ${currentPage === item.id ? 'Navbar__NavLink--active' : ''}`}
-              onClick={() => handleNavClick(item.id)}
+              key={item.path}
+              className={`Navbar__NavLink ${isActive(item.path) ? 'Navbar__NavLink--active' : ''}`}
+              onClick={() => handleNavClick(item.path)}
             >
               {item.name}
             </button>
           ))}
+          
+          {/* Indices Dropdown */}
+          <div className="Navbar__Dropdown">
+            <button
+              className={`Navbar__NavLink Navbar__DropdownToggle ${isIndicesDropdownOpen ? 'Navbar__NavLink--active' : ''}`}
+              onClick={toggleIndicesDropdown}
+            >
+              Indices
+              <svg 
+                className={`Navbar__DropdownArrow ${isIndicesDropdownOpen ? 'Navbar__DropdownArrow--open' : ''}`}
+                width="12" 
+                height="12" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2"
+              >
+                <polyline points="6,9 12,15 18,9"></polyline>
+              </svg>
+            </button>
+            
+            {isIndicesDropdownOpen && (
+              <div className="Navbar__DropdownMenu">
+                {indicesItems.map((item) => (
+                  <button
+                    key={item.path}
+                    className={`Navbar__DropdownItem ${isActive(item.path) ? 'Navbar__DropdownItem--active' : ''}`}
+                    onClick={() => handleNavClick(item.path)}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           
           {/* More Dropdown */}
           <div className="Navbar__Dropdown">
@@ -88,9 +141,9 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
               <div className="Navbar__DropdownMenu">
                 {dropdownItems.map((item) => (
                   <button
-                    key={item.id}
-                    className={`Navbar__DropdownItem ${currentPage === item.id ? 'Navbar__DropdownItem--active' : ''}`}
-                    onClick={() => handleDropdownItemClick(item.id)}
+                    key={item.path}
+                    className={`Navbar__DropdownItem ${isActive(item.path) ? 'Navbar__DropdownItem--active' : ''}`}
+                    onClick={() => handleNavClick(item.path)}
                   >
                     {item.name}
                   </button>
@@ -111,7 +164,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
           </button>
 
           {/* User Profile */}
-          <div className="Navbar__UserProfile" onClick={() => handleNavClick('profile')}>
+          <div className="Navbar__UserProfile" onClick={() => handleNavClick('/profile')}>
             <div className="Navbar__ProfileAvatar">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <circle cx="12" cy="8" r="5" fill="#FFB6C1"/>
@@ -136,24 +189,41 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         <div className="Navbar__MobileMenu">
           {navItems.map((item) => (
             <button
-              key={item.id}
-              className={`Navbar__MobileNavLink ${currentPage === item.id ? 'Navbar__MobileNavLink--active' : ''}`}
-              onClick={() => handleNavClick(item.id)}
+              key={item.path}
+              className={`Navbar__MobileNavLink ${isActive(item.path) ? 'Navbar__MobileNavLink--active' : ''}`}
+              onClick={() => handleNavClick(item.path)}
             >
               {item.name}
             </button>
           ))}
           
+          {/* Mobile Indices Items */}
+          <div className="Navbar__MobileSection">
+            <div className="Navbar__MobileSectionTitle">Indices</div>
+            {indicesItems.map((item) => (
+              <button
+                key={item.path}
+                className={`Navbar__MobileNavLink Navbar__MobileNavLink--indent ${isActive(item.path) ? 'Navbar__MobileNavLink--active' : ''}`}
+                onClick={() => handleNavClick(item.path)}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
+          
           {/* Mobile Dropdown Items */}
-          {dropdownItems.map((item) => (
-            <button
-              key={item.id}
-              className={`Navbar__MobileNavLink ${currentPage === item.id ? 'Navbar__MobileNavLink--active' : ''}`}
-              onClick={() => handleDropdownItemClick(item.id)}
-            >
-              {item.name}
-            </button>
-          ))}
+          <div className="Navbar__MobileSection">
+            <div className="Navbar__MobileSectionTitle">More</div>
+            {dropdownItems.map((item) => (
+              <button
+                key={item.path}
+                className={`Navbar__MobileNavLink Navbar__MobileNavLink--indent ${isActive(item.path) ? 'Navbar__MobileNavLink--active' : ''}`}
+                onClick={() => handleNavClick(item.path)}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </nav>

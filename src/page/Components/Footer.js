@@ -1,14 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 
-const Footer = ({ setCurrentPage }) => {
+const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>FinApp</h3>
-            <p>Empowering individuals to achieve financial freedom through smart money management.</p>
+            <div className="footer-brand">
+              <div className="footer-logo">
+                <div className="footer-logo-icon">
+                </div>
+              </div>
+              <h3>GainGuru</h3>
+              <p>Your trusted partner for smart financial management and wealth creation.</p>
+            </div>
           </div>
           <div className="footer-section">
             <h4>Product</h4>
@@ -16,13 +29,13 @@ const Footer = ({ setCurrentPage }) => {
               <li><a href="#features">Features</a></li>
               <li><button 
                 className="footer-link" 
-                onClick={() => setCurrentPage('calculators')}
+                onClick={() => handleNavigation('/calculators')}
               >
                 Calculators
               </button></li>
               <li><button 
                 className="footer-link" 
-                onClick={() => setCurrentPage('sip-calculator')}
+                onClick={() => handleNavigation('/calculators/sip')}
               >
                 SIP Calculator
               </button></li>
@@ -51,7 +64,7 @@ const Footer = ({ setCurrentPage }) => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 FinApp. All rights reserved.</p>
+          <p>&copy; 2024 GainGuru. All rights reserved.</p>
         </div>
       </div>
     </footer>

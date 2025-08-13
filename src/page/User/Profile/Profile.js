@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Profile.css';
 
-const Profile = ({ onBack }) => {
+const Profile = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     id: 1,
     name: 'John Doe',
@@ -714,7 +716,7 @@ const Profile = ({ onBack }) => {
       <div className="Profile__Container">
         {/* Header */}
         <div className="Profile__Header">
-          <button className="Profile__BackButton" onClick={onBack}>← Back</button>
+          <button className="Profile__BackButton" onClick={() => navigate(-1)}>← Back</button>
           <div className="Profile__HeaderContent">
             <h1 className="Profile__Title">Profile</h1>
             <p className="Profile__Subtitle">Manage your account settings and preferences</p>

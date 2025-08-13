@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import './Currency.css';
 
-const Currency = ({ onBack }) => {
+const Currency = () => {
+  const navigate = useNavigate();
+  
   const [currencyData, setCurrencyData] = useState({
     fromCurrency: 'INR',
     toCurrency: 'USD',
@@ -252,7 +255,7 @@ const Currency = ({ onBack }) => {
     <div className="Currency">
       <div className="Currency__Container">
         <div className="Currency__Header">
-          <button className="Currency__BackButton" onClick={onBack}>← Back</button>
+          <button className="Currency__BackButton" onClick={() => navigate(-1)}>← Back</button>
           <h1 className="Currency__Title">Currency Converter</h1>
           <p className="Currency__Subtitle">Track INR exchange rates and view historical trends (INR to USD by default)</p>
         </div>

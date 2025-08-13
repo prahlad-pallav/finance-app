@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import SipCalculator from './page/Calculators/Pages/SipCalculator';
 import CompoundInterestCalculator from './page/Calculators/Pages/CompoundInterest/CompoundInterestCalculator';
@@ -8,172 +9,76 @@ import Footer from './page/Components/Footer';
 import Currency from './page/Currency/Currency';
 import Cryptocurrency from './page/Cryptocurrency/Cryptocurrency';
 import Nifty50 from './page/Indices/Nifty50/Nifty50';
+import Sensex from './page/Indices/Sensex/Sensex';
+import BankNifty from './page/Indices/BankNifty/BankNifty';
 import Links from './page/Links/Links';
 import Commodities from './page/Commodities/Commodities';
 import Learn from './page/Learn/Learn';
 import Profile from './page/User/Profile/Profile';
+import Home from './page/Home/Home';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'sip-calculator':
-        return <SipCalculator />;
-      case 'compound-interest':
-        return <CompoundInterestCalculator />;
-      case 'calculators':
-        return <Calculators />;
-      case 'currency':
-        return <Currency onBack={() => setCurrentPage('home')} />;
-      case 'cryptocurrency':
-        return <Cryptocurrency />;
-      case 'nifty50':
-        return <Nifty50 />;
-      case 'links':
-        return <Links />;
-      case 'commodities':
-        return <Commodities />;
-      case 'learn':
-        return <Learn />;
-      case 'profile':
-        return <Profile onBack={() => setCurrentPage('home')} />;
-      case 'tools':
-        return (
-          <div className="page-container">
-            <h1>Tools</h1>
-            <p>Additional financial tools and utilities coming soon.</p>
-          </div>
-        );
-      default:
-        return (
-          <>
-            {/* Hero Section */}
-            <section className="hero" id="home">
-              <div className="container">
-                <div className="hero-content">
-                  <h1>Take Control of Your Financial Future</h1>
-                  <p>Track expenses, set budgets, and achieve your financial goals with our intuitive finance management platform.</p>
-                  <div className="hero-buttons">
-                    <button className="btn-primary btn-large" onClick={() => setCurrentPage('calculators')}>Try Calculators</button>
-                    <button className="btn-outline btn-large">Watch Demo</button>
-                  </div>
-                </div>
-                <div className="hero-image">
-                  <div className="dashboard-preview">
-                    <div className="chart-placeholder"></div>
-                    <div className="stats-grid">
-                      <div className="stat-card">
-                        <h3>$2,450</h3>
-                        <p>Monthly Savings</p>
-                      </div>
-                      <div className="stat-card">
-                        <h3>15%</h3>
-                        <p>Budget Increase</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Features Section */}
-            <section className="features" id="features">
-              <div className="container">
-                <div className="section-header">
-                  <h2>Why Choose FinApp?</h2>
-                  <p>Everything you need to manage your finances effectively</p>
-                </div>
-                <div className="features-grid">
-                  <div className="feature-card">
-                    <div className="feature-icon">📊</div>
-                    <h3>Smart Analytics</h3>
-                    <p>Get detailed insights into your spending patterns and financial health with AI-powered analytics.</p>
-                  </div>
-                  <div className="feature-card">
-                    <div className="feature-icon">🎯</div>
-                    <h3>Goal Setting</h3>
-                    <p>Set and track financial goals with personalized recommendations and progress monitoring.</p>
-                  </div>
-                  <div className="feature-card">
-                    <div className="feature-icon">🔒</div>
-                    <h3>Secure & Private</h3>
-                    <p>Bank-level security ensures your financial data is always protected and private.</p>
-                  </div>
-                  <div className="feature-card">
-                    <div className="feature-icon">📱</div>
-                    <h3>Mobile First</h3>
-                    <p>Access your finances anywhere with our responsive mobile app and web platform.</p>
-                  </div>
-                  <div className="feature-card">
-                    <div className="feature-icon">💳</div>
-                    <h3>Multi-Account</h3>
-                    <p>Connect all your bank accounts, credit cards, and investment portfolios in one place.</p>
-                  </div>
-                  <div className="feature-card">
-                    <div className="feature-icon">📈</div>
-                    <h3>Investment Tracking</h3>
-                    <p>Monitor your investments and get real-time market data to make informed decisions.</p>
-                  </div>
-                  <div className="feature-card" onClick={() => setCurrentPage('currency')}>
-                    <div className="feature-icon">💱</div>
-                    <h3>Currency Converter</h3>
-                    <p>Track INR exchange rates and view historical trends with real-time currency conversion.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Stats Section */}
-            <section className="stats">
-              <div className="container">
-                <div className="stats-grid">
-                  <div className="stat-item">
-                    <h3>50K+</h3>
-                    <p>Active Users</p>
-                  </div>
-                  <div className="stat-item">
-                    <h3>$2.5M</h3>
-                    <p>Total Savings</p>
-                  </div>
-                  <div className="stat-item">
-                    <h3>95%</h3>
-                    <p>User Satisfaction</p>
-                  </div>
-                  <div className="stat-item">
-                    <h3>24/7</h3>
-                    <p>Customer Support</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="cta">
-              <div className="container">
-                <div className="cta-content">
-                  <h2>Ready to Transform Your Finances?</h2>
-                  <p>Join thousands of users who have already taken control of their financial future.</p>
-                  <button className="btn-primary btn-large">Get Started Today</button>
-                </div>
-              </div>
-            </section>
-          </>
-        );
-    }
-  };
-
   return (
-    <div className="App">
-      {/* Navbar */}
-      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+    <Router>
+      <div className="App">
+        {/* Navbar */}
+        <Navbar />
 
-      {/* Main Content */}
-      {renderPage()}
+        {/* Main Content */}
+        <Routes>
+          {/* Home Route */}
+          <Route path="/" element={<Home />} />
+          
+          {/* Calculator Routes */}
+          <Route path="/calculators" element={<Calculators />} />
+          <Route path="/calculators/sip" element={<SipCalculator />} />
+          <Route path="/calculators/compound-interest" element={<CompoundInterestCalculator />} />
+          
+          {/* Market Data Routes */}
+          <Route path="/cryptocurrency" element={<Cryptocurrency />} />
+          <Route path="/currency" element={<Currency />} />
+          <Route path="/commodities" element={<Commodities />} />
+          
+          {/* Indices Routes */}
+          <Route path="/indices/nifty50" element={<Nifty50 />} />
+          <Route path="/indices/sensex" element={<Sensex />} />
+          <Route path="/indices/banknifty" element={<BankNifty />} />
+          
+          {/* Other Routes */}
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/links" element={<Links />} />
+          <Route path="/profile" element={<Profile />} />
+          
+          {/* Tools Route */}
+          <Route path="/tools" element={
+            <div className="page-container">
+              <h1>Tools</h1>
+              <p>Additional financial tools and utilities coming soon.</p>
+            </div>
+          } />
+          
+          {/* Nifty IT and Pharma Placeholders */}
+          <Route path="/indices/niftyit" element={
+            <div className="page-container">
+              <h1>Nifty IT</h1>
+              <p>Nifty IT Index data and analysis coming soon.</p>
+            </div>
+          } />
+          <Route path="/indices/niftypharma" element={
+            <div className="page-container">
+              <h1>Nifty Pharma</h1>
+              <p>Nifty Pharma Index data and analysis coming soon.</p>
+            </div>
+          } />
+          
+          {/* Catch all route - redirect to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
 
-      {/* Footer */}
-      <Footer setCurrentPage={setCurrentPage} />
-    </div>
+        {/* Footer */}
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

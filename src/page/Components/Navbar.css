@@ -283,6 +283,28 @@
   color: #00b4d8;
 }
 
+/* Mobile Section Block */
+.Navbar__MobileSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.Navbar__MobileSectionTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  padding: 0 1rem;
+}
+
+.Navbar__MobileNavLink--indent {
+  padding-left: 2rem;
+  font-size: 0.95rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .Navbar__Nav {
