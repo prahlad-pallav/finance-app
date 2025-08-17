@@ -15,6 +15,8 @@ import Links from './page/Links/Links';
 import Commodities from './page/Commodities/Commodities';
 import Learn from './page/Learn/Learn';
 import Profile from './page/User/Profile/Profile';
+import Login from './page/User/Login/Login.js';
+import Signup from './page/User/Signup/Signup.js';
 import Home from './page/Home/Home';
 
 function App() {
@@ -28,6 +30,11 @@ function App() {
         <Routes>
           {/* Home Route */}
           <Route path="/" element={<Home />} />
+          
+          {/* User Authentication Routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
           
           {/* Calculator Routes */}
           <Route path="/calculators" element={<Calculators />} />
@@ -47,7 +54,6 @@ function App() {
           {/* Other Routes */}
           <Route path="/learn" element={<Learn />} />
           <Route path="/links" element={<Links />} />
-          <Route path="/profile" element={<Profile />} />
           
           {/* Tools Route */}
           <Route path="/tools" element={
