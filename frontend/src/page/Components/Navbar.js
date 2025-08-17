@@ -16,6 +16,7 @@ const Navbar = () => {
     { name: 'Calculators', path: '/calculators' },
     { name: 'Cryptocurrency', path: '/cryptocurrency' },
     { name: 'Nifty50', path: '/indices/nifty50' },
+    { name: 'Indexx', path: '/indexx' },
     { name: 'Learn', path: '/learn' },
     { name: 'Tools', path: '/tools' }
   ];
@@ -198,12 +199,12 @@ const Navbar = () => {
           ))}
           
           {/* Mobile Indices Items */}
-          <div className="Navbar__MobileSection">
-            <div className="Navbar__MobileSectionTitle">Indices</div>
+          <div className="Navbar__MobileIndices">
+            <h3>Indices</h3>
             {indicesItems.map((item) => (
               <button
                 key={item.path}
-                className={`Navbar__MobileNavLink Navbar__MobileNavLink--indent ${isActive(item.path) ? 'Navbar__MobileNavLink--active' : ''}`}
+                className={`Navbar__MobileNavLink ${isActive(item.path) ? 'Navbar__MobileNavLink--active' : ''}`}
                 onClick={() => handleNavClick(item.path)}
               >
                 {item.name}
@@ -211,13 +212,13 @@ const Navbar = () => {
             ))}
           </div>
           
-          {/* Mobile Dropdown Items */}
-          <div className="Navbar__MobileSection">
-            <div className="Navbar__MobileSectionTitle">More</div>
+          {/* Mobile More Items */}
+          <div className="Navbar__MobileMore">
+            <h3>More</h3>
             {dropdownItems.map((item) => (
               <button
                 key={item.path}
-                className={`Navbar__MobileNavLink Navbar__MobileNavLink--indent ${isActive(item.path) ? 'Navbar__MobileNavLink--active' : ''}`}
+                className={`Navbar__MobileNavLink ${isActive(item.path) ? 'Navbar__MobileNavLink--active' : ''}`}
                 onClick={() => handleNavClick(item.path)}
               >
                 {item.name}

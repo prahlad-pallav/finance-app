@@ -18,6 +18,8 @@ import Profile from './page/User/Profile/Profile.js';
 import Login from './page/User/Login/Login.js';
 import Signup from './page/User/Signup/Signup.js';
 import Home from './page/Home/Home.js';
+import BackendTest from './components/BackendTest.js';
+import Indexx from './components/indexx.js';
 
 function App() {
   return (
@@ -50,10 +52,12 @@ function App() {
           <Route path="/indices/nifty50" element={<Nifty50 />} />
           <Route path="/indices/sensex" element={<Sensex />} />
           <Route path="/indices/banknifty" element={<BankNifty />} />
+          <Route path="/indexx" element={<Indexx />} />
           
           {/* Other Routes */}
           <Route path="/learn" element={<Learn />} />
           <Route path="/links" element={<Links />} />
+          <Route path="/backend-test" element={<BackendTest />} />
           
           {/* Tools Route */}
           <Route path="/tools" element={
