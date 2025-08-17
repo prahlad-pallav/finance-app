@@ -1,23 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-import SipCalculator from './page/Calculators/Pages/SipCalculator';
-import CompoundInterestCalculator from './page/Calculators/Pages/CompoundInterest/CompoundInterestCalculator';
-import Calculators from './page/Calculators/Calculators';
-import Navbar from './page/Components/Navbar';
-import Footer from './page/Components/Footer';
-import Currency from './page/Currency/Currency';
-import Cryptocurrency from './page/Cryptocurrency/Cryptocurrency';
-import Nifty50 from './page/Indices/Nifty50/Nifty50';
-import Sensex from './page/Indices/Sensex/Sensex';
-import BankNifty from './page/Indices/BankNifty/BankNifty';
-import Links from './page/Links/Links';
-import Commodities from './page/Commodities/Commodities';
-import Learn from './page/Learn/Learn';
-import Profile from './page/User/Profile/Profile';
+import SipCalculator from './page/Calculators/Pages/SipCalculator.js';
+import CompoundInterestCalculator from './page/Calculators/Pages/CompoundInterest/CompoundInterestCalculator.js';
+import Calculators from './page/Calculators/Calculators.js';
+import Navbar from './page/Components/Navbar.js';
+import Footer from './page/Components/Footer.js';
+import Currency from './page/Currency/Currency.js';
+import Cryptocurrency from './page/Cryptocurrency/Cryptocurrency.js';
+import Nifty50 from './page/Indices/Nifty50/Nifty50.js';
+import Sensex from './page/Indices/Sensex/Sensex.js';
+import BankNifty from './page/Indices/BankNifty/BankNifty.js';
+import Links from './page/Links/Links.js';
+import Commodities from './page/Commodities/Commodities.js';
+import Learn from './page/Learn/Learn.js';
+import Profile from './page/User/Profile/Profile.js';
 import Login from './page/User/Login/Login.js';
 import Signup from './page/User/Signup/Signup.js';
-import Home from './page/Home/Home';
+import Home from './page/Home/Home.js';
 
 function App() {
   return (
