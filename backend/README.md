@@ -1,170 +1,163 @@
-# Finance App Backend
+# Finance API - NSE India Data Service
 
-A Flask backend for the Finance Application with Nifty50 stocks data integration using yfinance.
+A Flask-based REST API for fetching financial data from NSE India.
 
-## Setup
+## 🏗️ Project Structure
 
-1. **Install Python dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+```
+finance-app/backend/
+├── app/                          # Application package
+│   ├── __init__.py              # Flask app factory
+│   ├── api/                     # API routes
+│   │   ├── __init__.py
+│   │   └── routes.py            # API endpoints
+│   ├── config/                  # Configuration
+│   │   ├── __init__.py
+│   │   └── config.py            # App configuration
+│   ├── models/                  # Data models (future)
+│   │   └── __init__.py
+│   ├── services/                # Business logic
+│   │   ├── __init__.py
+│   │   └── nse_service.py       # NSE API service
+│   └── utils/                   # Utilities
+│       ├── __init__.py
+│       └── logger.py            # Logging utility
+├── tests/                       # Test files
+├── logs/                        # Application logs
+├── run.py                       # Application entry point
+├── requirements.txt             # Python dependencies
+├── env.example                  # Environment variables example
+└── README.md                    # This file
+```
 
-2. **Run the application:**
-   ```bash
-   python app.py
-   ```
+## 🚀 Quick Start
 
-3. **Access the API:**
-   - Main endpoint: http://localhost:5000/
-   - API endpoint: http://localhost:5000/api/hello
-   - Health check: http://localhost:5000/api/health
+### 1. Install Dependencies
 
-## API Endpoints
+```bash
+pip install -r requirements.txt
+```
 
-### Basic Endpoints
-- `GET /` - Hello World message
-- `GET /api/hello` - API information
+### 2. Set Environment Variables
+
+Copy the example environment file:
+```bash
+cp env.example .env
+```
+
+Edit `.env` with your configuration:
+```bash
+FLASK_CONFIG=development
+SECRET_KEY=your-secret-key-here
+```
+
+### 3. Run the Application
+
+```bash
+python run.py
+```
+
+The API will be available at `http://localhost:5000`
+
+## 📡 API Endpoints
+
+### Base Endpoints
+- `GET /` - Hello world
+- `GET /api/hello` - API hello
 - `GET /api/health` - Health check
 
-### Nifty50 Stocks Endpoints
-- `GET /api/nifty50/stocks` - Get list of all Nifty50 stocks
-- `GET /api/nifty50/stock/<symbol>` - Get detailed data for a specific stock
-- `GET /api/nifty50/market-overview` - Get market overview for all Nifty50 stocks
-- `GET /api/nifty50/stock/<symbol>/history` - Get historical data for a specific stock
+### NSE Data Endpoints
+- `GET /api/nifty50/symbols` - Nifty 50 stock symbols
+- `GET /api/indices/all` - All NSE indices
+- `GET /api/live/52week-high` - 52-week high stocks
+- `GET /api/live/52week-low` - 52-week low stocks
 
-## Nifty50 API Usage Examples
+## 🏛️ Architecture
 
-### 1. Get All Nifty50 Stocks
+### Application Factory Pattern
+- Uses Flask application factory for better testing and configuration
+- Modular structure with blueprints
+- Environment-based configuration
+
+### Service Layer
+- `NSEService` handles all NSE API interactions
+- Centralized error handling and logging
+- Rate limiting and timeout management
+
+### Configuration Management
+- Environment-based configuration
+- Separate configs for development, production, and testing
+- Secure secret management
+
+### Logging
+- Structured logging with file and console output
+- Configurable log levels
+- Request/response logging
+
+## 🔧 Configuration
+
+### Environment Variables
+- `FLASK_CONFIG`: Configuration environment (development/production/testing)
+- `SECRET_KEY`: Flask secret key
+- `NSE_BASE_URL`: NSE API base URL
+- `NSE_TIMEOUT`: API timeout in seconds
+- `CORS_ORIGINS`: Allowed CORS origins
+- `LOG_LEVEL`: Logging level
+
+### Configuration Classes
+- `DevelopmentConfig`: Development settings
+- `ProductionConfig`: Production settings
+- `TestingConfig`: Testing settings
+
+## 🧪 Testing
+
+Run tests (when implemented):
 ```bash
-GET http://localhost:5000/api/nifty50/stocks
+python -m pytest tests/
 ```
 
-**Response:**
-```json
-{
-  "status": "success",
-  "data": [
-    {
-      "name": "RELIANCE",
-      "symbol": "RELIANCE.NS"
-    },
-    {
-      "name": "TCS",
-      "symbol": "TCS.NS"
-    }
-  ],
-  "count": 50
-}
+## 📝 Logging
+
+Logs are stored in `logs/app.log` with the following format:
+```
+2024-01-15 10:30:00 - finance_api - INFO - Fetching Nifty50 symbols
 ```
 
-### 2. Get Specific Stock Data
+## 🔒 Security
+
+- CORS configuration for frontend access
+- Environment-based secret management
+- Input validation and sanitization
+- Error handling without exposing internals
+
+## 🚀 Deployment
+
+### Development
 ```bash
-GET http://localhost:5000/api/nifty50/stock/RELIANCE
+FLASK_CONFIG=development python run.py
 ```
 
-**Response:**
-```json
-{
-  "status": "success",
-  "data": {
-    "symbol": "RELIANCE",
-    "name": "Reliance Industries Limited",
-    "current_price": 2456.78,
-    "previous_close": 2440.50,
-    "open": 2445.00,
-    "high": 2460.00,
-    "low": 2430.00,
-    "volume": 1234567,
-    "market_cap": 1654321000000,
-    "pe_ratio": 18.5,
-    "dividend_yield": 0.45,
-    "sector": "Energy",
-    "industry": "Oil & Gas Refining & Marketing",
-    "price_history": [2400.50, 2410.25, ...],
-    "dates": ["2024-01-01", "2024-01-02", ...]
-  }
-}
-```
-
-### 3. Get Market Overview
+### Production
 ```bash
-GET http://localhost:5000/api/nifty50/market-overview
+FLASK_CONFIG=production python run.py
 ```
 
-**Response:**
-```json
-{
-  "status": "success",
-  "data": [
-    {
-      "name": "RELIANCE",
-      "symbol": "RELIANCE.NS",
-      "current_price": 2456.78,
-      "change": 16.28,
-      "change_percent": 0.67,
-      "volume": 1234567
-    }
-  ],
-  "count": 50,
-  "timestamp": "2024-01-15T10:30:00"
-}
-```
+## 📊 Data Sources
 
-### 4. Get Historical Data
-```bash
-GET http://localhost:5000/api/nifty50/stock/RELIANCE/history?period=1y&interval=1d
-```
+All data is fetched from NSE India APIs:
+- Nifty 50 symbols
+- All indices data
+- 52-week high/low stocks
+- Live market data
 
-**Query Parameters:**
-- `period`: Time period (1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max)
-- `interval`: Data interval (1m, 2m, 5m, 15m, 30m, 60m, 90m, 1h, 1d, 5d, 1wk, 1mo, 3mo)
+## 🤝 Contributing
 
-**Response:**
-```json
-{
-  "status": "success",
-  "data": {
-    "symbol": "RELIANCE",
-    "period": "1y",
-    "interval": "1d",
-    "history": [
-      {
-        "date": "2024-01-15",
-        "open": 2445.00,
-        "high": 2460.00,
-        "low": 2430.00,
-        "close": 2456.78,
-        "volume": 1234567
-      }
-    ]
-  }
-}
-```
+1. Follow the existing code structure
+2. Add tests for new features
+3. Update documentation
+4. Use proper logging
+5. Follow PEP 8 style guidelines
 
-## Available Nifty50 Stocks
+## 📄 License
 
-The API supports all 50 stocks in the Nifty50 index including:
-- RELIANCE, TCS, HDFCBANK, INFY, ICICIBANK, HINDUNILVR, ITC, SBIN, BHARTIARTL, KOTAKBANK
-- And 40 more stocks...
-
-## Error Handling
-
-All endpoints return appropriate HTTP status codes:
-- `200` - Success
-- `404` - Stock not found
-- `500` - Server error
-
-Error responses include:
-```json
-{
-  "status": "error",
-  "message": "Error description"
-}
-```
-
-## Dependencies
-
-- Flask - Web framework
-- Flask-CORS - Cross-origin resource sharing
-- yfinance - Yahoo Finance data
-- pandas - Data manipulation
+This project is for educational purposes.
